@@ -1,0 +1,31 @@
+# FastAPI core
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+python-multipart==0.0.9
+
+# Database
+sqlalchemy==2.0.31
+asyncpg==0.29.0
+alembic==1.13.2
+psycopg2-binary==2.9.9
+
+# Auth & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Vector DB
+chromadb==0.5.5
+
+# LLM
+google-genai==0.8.0
+
+# Scheduling
+apscheduler==3.10.4
+
+# Config & Env
+pydantic==2.7.4
+pydantic-settings==2.3.4
+python-dotenv==1.0.1
+
+# HTTP client (for LLM calls if needed)
+httpx==0.27.0

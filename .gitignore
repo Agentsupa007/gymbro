@@ -1,0 +1,22 @@
+# Create .gitignore in D:\gymbro
+New-Item -ItemType File -Path ".gitignore" -Force
+```
+
+Paste this inside it:
+```
+# Python
+venv/
+__pycache__/
+*.pyc
+.env
+
+# Node
+node_modules/
+dist/
+
+# Alembic
+backend/alembic/versions/*.py
+
+# IDE
+.vscode/
+.idea/
