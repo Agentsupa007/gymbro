@@ -1,21 +1,22 @@
-from sqlalchemy import Column, String, DateTime, Integer, Float, Text, ForeignKey
+from sqlalchemy import Column, String, DateTime, Integer, Float, Text, ForeignKey, Enum
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 import uuid
+import enum
 from app.core.database import Base
 
+
+# ─── Existing models (unchanged) ──────────────────────────────────────────────
 
 class Workout(Base):
     __tablename__ = "workouts"
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     user_id = Column(String, ForeignKey("users.id"), nullable=False, index=True)
-
     name = Column(String(255), nullable=False)
     notes = Column(Text)
     duration_minutes = Column(Integer)
     workout_date = Column(DateTime(timezone=True), nullable=False)
-
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
@@ -28,7 +29,6 @@ class Exercise(Base):
 
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     workout_id = Column(String, ForeignKey("workouts.id"), nullable=False, index=True)
-
     name = Column(String(255), nullable=False)
     sets = Column(Integer)
     reps = Column(Integer)
@@ -36,8 +36,94 @@ class Exercise(Base):
     duration_seconds = Column(Integer)
     notes = Column(Text)
     order_index = Column(Integer, default=0)
-
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
     workout = relationship("Workout", back_populates="exercises")
+
+
+# ─── Enums ────────────────────────────────────────────────────────────────────
+
+class SessionStatusEnum(str, enum.Enum):
+    in_progress = "in_progress"
+    completed = "completed"
+    cancelled = "cancelled"
+
+
+# ─── New models ───────────────────────────────────────────────────────────────
+
+class WorkoutPlan(Base):
+    __tablename__ = "workout_plans"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    name = Column(String(255), nullable=False)
+    description = Column(Text, nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
+    user = relationship("User", back_populates="workout_plans")
+    plan_exercises = relationship("PlanExercise", back_populates="plan", cascade="all, delete-orphan")
+    sessions = relationship("WorkoutSession", back_populates="plan")
+
+
+class PlanExercise(Base):
+    __tablename__ = "plan_exercises"
+
+    plan_id = Column(String(36), ForeignKey("workout_plans.id", ondelete="CASCADE"), primary_key=True)
+    exercise_name = Column(String(255), primary_key=True)
+    sets = Column(Integer, nullable=True)
+    reps = Column(Integer, nullable=True)
+    order_index = Column(Integer, nullable=True)
+
+    plan = relationship("WorkoutPlan", back_populates="plan_exercises")
+
+
+class WorkoutSession(Base):
+    __tablename__ = "workout_sessions"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    plan_id = Column(String(36), ForeignKey("workout_plans.id", ondelete="SET NULL"), nullable=True)
+    status = Column(Enum(SessionStatusEnum), nullable=False, default=SessionStatusEnum.in_progress)
+    notes = Column(Text, nullable=True)
+    started_at = Column(DateTime(timezone=True), nullable=False)
+    completed_at = Column(DateTime(timezone=True), nullable=True)
+    duration_minutes = Column(Integer, nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    user = relationship("User", back_populates="workout_sessions")
+    plan = relationship("WorkoutPlan", back_populates="sessions")
+    session_exercises = relationship("SessionExercise", back_populates="session", cascade="all, delete-orphan")
+
+
+class SessionExercise(Base):
+    __tablename__ = "session_exercises"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    session_id = Column(String(36), ForeignKey("workout_sessions.id", ondelete="CASCADE"), nullable=False, index=True)
+    exercise_name = Column(String(255), nullable=False)
+    category = Column(String(100), nullable=True)
+    muscle_group = Column(String(100), nullable=True)
+    order_index = Column(Integer, nullable=True)
+    notes = Column(Text, nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    session = relationship("WorkoutSession", back_populates="session_exercises")
+    sets = relationship("ExerciseSet", back_populates="session_exercise", cascade="all, delete-orphan")
+
+
+class ExerciseSet(Base):
+    __tablename__ = "exercise_sets"
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    session_exercise_id = Column(String(36), ForeignKey("session_exercises.id", ondelete="CASCADE"), nullable=False, index=True)
+    set_number = Column(Integer, nullable=False)
+    reps = Column(Integer, nullable=True)
+    weight_kg = Column(Float, nullable=True)
+    duration_seconds = Column(Integer, nullable=True)
+    rest_seconds = Column(Integer, nullable=True)
+    notes = Column(Text, nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    session_exercise = relationship("SessionExercise", back_populates="sets")
