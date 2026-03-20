@@ -1,34 +1,25 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-
-function Dashboard() {
-  const { user, logout } = useAuth();
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white p-8 rounded-xl shadow-md text-center">
-        <h1 className="text-2xl font-bold text-gray-800 mb-2">Dashboard</h1>
-        <p className="text-gray-500 mb-6">Logged in as {user?.email}</p>
-        <button
-          onClick={logout}
-          className="bg-red-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-red-600 transition"
-        >
-          Logout
-        </button>
-      </div>
-    </div>
-  );
-}
+import Dashboard from "./pages/Dashboard";
+import WorkoutPlans from "./pages/WorkoutPlans";
+import Metrics from "./pages/Metrics";
+import Chat from "./pages/Chat";
+import Profile from "./pages/Profile";
 
 export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <Routes>
+          {/* Public routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+
+          {/* Protected routes */}
           <Route
             path="/dashboard"
             element={
@@ -37,7 +28,41 @@ export default function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route
+            path="/workouts"
+            element={
+              <ProtectedRoute>
+                <WorkoutPlans />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/metrics"
+            element={
+              <ProtectedRoute>
+                <Metrics />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/chat"
+            element={
+              <ProtectedRoute>
+                <Chat />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Fallback */}
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

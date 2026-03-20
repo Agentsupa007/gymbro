@@ -1,35 +1,62 @@
-from sqlalchemy import Column, String, DateTime, Float, ForeignKey, Enum
+from sqlalchemy import (
+    Column, String, DateTime, Date, Float, Integer,
+    Text, ForeignKey, UniqueConstraint, Index
+)
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 import uuid
-import enum
 from app.core.database import Base
 
-class MetricTypeEnum(str, enum.Enum):
-    weight = "weight"
-    body_fat = "body_fat"
-    muscle_mass = "muscle_mass"
-    bmi = "bmi"
-    chest = "chest"
-    waist = "waist"
-    hips = "hips"
-    biceps = "biceps"
-    thighs = "thighs"
 
-class UnitEnum(str, enum.Enum):
-    kg = "kg"
-    lbs = "lbs"
-    percent = "%"
-    cm = "cm"
-    inches = "in"
+class DailyMetrics(Base):
+    __tablename__ = "daily_metrics"
 
-class Metric(Base):
-    __tablename__ = "metrics"
+    __table_args__ = (
+        # One entry per user per day — enforced at DB level
+        UniqueConstraint("user_id", "date", name="uq_daily_metrics_user_date"),
+        Index("ix_daily_metrics_user_date", "user_id", "date"),
+    )
+
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
-    user_id = Column(String, ForeignKey("users.id"), nullable=False, index=True)
-    metric_type = Column(Enum(MetricTypeEnum), nullable=False)
-    value = Column(Float, nullable=False)
-    unit = Column(Enum(UnitEnum), nullable=False)
-    recorded_at = Column(DateTime(timezone=True), nullable=False, index=True)
+    user_id = Column(String(36), ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    date = Column(Date, nullable=False)
+
+    steps = Column(Integer, nullable=True)
+    calories_burned = Column(Integer, nullable=True)
+    calories_consumed = Column(Integer, nullable=True)
+    sleep_hours = Column(Float, nullable=True)
+    water_ml = Column(Integer, nullable=True)
+    resting_heart_rate = Column(Integer, nullable=True)
+    notes = Column(Text, nullable=True)
+
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-    user = relationship("User", back_populates="metrics")
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
+    user = relationship("User", back_populates="daily_metrics")
+
+
+class BodyMeasurement(Base):
+    __tablename__ = "body_measurements"
+
+    __table_args__ = (
+        # One measurement entry per user per day
+        UniqueConstraint("user_id", "date", name="uq_body_measurements_user_date"),
+        Index("ix_body_measurements_user_date", "user_id", "date"),
+    )
+
+    id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String(36), ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    date = Column(Date, nullable=False)
+
+    weight_kg = Column(Float, nullable=True)
+    body_fat_pct = Column(Float, nullable=True)
+    muscle_mass_kg = Column(Float, nullable=True)
+    chest_cm = Column(Float, nullable=True)
+    waist_cm = Column(Float, nullable=True)
+    hips_cm = Column(Float, nullable=True)
+    notes = Column(Text, nullable=True)
+
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
+    user = relationship("User", back_populates="body_measurements")
