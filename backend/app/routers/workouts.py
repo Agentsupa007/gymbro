@@ -20,6 +20,7 @@ from app.schemas.workout import (
     SetOut,
     ExerciseCatalogOut,
 )
+from fastapi import Response
 from app.services import workout_service
 
 router = APIRouter(prefix="/workouts", tags=["workouts"])
@@ -75,6 +76,18 @@ async def get_sessions(
     current_user: User = Depends(get_current_user),
 ):
     return await workout_service.get_sessions(db, current_user.id)
+
+
+@router.get(
+    "/sessions/{session_id}",
+    response_model=SessionOut,
+)
+async def get_session(
+    session_id: str,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    return await workout_service.get_session(db, session_id, current_user.id)
 
 
 @router.put(
@@ -138,6 +151,28 @@ async def log_set(
         current_user.id,
         data,
     )
+
+
+@router.delete(
+    "/sessions/{session_id}/exercises/{session_exercise_id}/sets/{set_id}",
+    status_code=status.HTTP_204_NO_CONTENT,
+)
+async def delete_set(
+    session_id: str,
+    session_exercise_id: str,
+    set_id: str,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    await workout_service.delete_set(
+        db,
+        session_id,
+        session_exercise_id,
+        set_id,
+        current_user.id,
+    )
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
+
 
 # ─── Exercise Catalog ─────────────────────────────────────────────────────────
 

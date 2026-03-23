@@ -114,7 +114,7 @@ export default function WorkoutCard({ plan, onStart, starting = false }) {
         }}
       >
         <button
-          onClick={(e) => { e.stopPropagation(); if (typeof onStart === "function") onStart(); }}
+          onClick={(e) => { e.stopPropagation(); if (typeof onStart === "function") onStart(plan.id); }}
           disabled={starting}
           style={{
             background: "transparent",

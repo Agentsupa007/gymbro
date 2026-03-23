@@ -107,6 +107,14 @@ async def _get_plan_or_404(
 
 # ─── Sessions ─────────────────────────────────────────────────────────────────
 
+async def get_session(
+    db: AsyncSession,
+    session_id: str,
+    user_id: str,
+) -> WorkoutSession:
+    """Public wrapper — returns a single session with exercises+sets, or 404."""
+    return await _get_session_or_404(db, session_id, user_id)
+
 async def create_session(
     db: AsyncSession,
     user_id: str,
@@ -312,6 +320,44 @@ async def log_set(
     await db.refresh(exercise_set)
 
     return exercise_set
+
+# ─── Delete Set ─────────────────────────────────────────────────────────────
+
+async def delete_set(
+    db: AsyncSession,
+    session_id: str,
+    session_exercise_id: str,
+    set_id: str,
+    user_id: str,
+) -> None:
+
+    # Validate session ownership
+    session = await _get_session_or_404(db, session_id, user_id)
+
+    if session.status != SessionStatusEnum.in_progress:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Cannot delete sets from a completed or cancelled session",
+        )
+
+    # Find the set, verify it belongs to the correct exercise+session
+    result = await db.execute(
+        select(ExerciseSet)
+        .where(
+            and_(
+                ExerciseSet.id == set_id,
+                ExerciseSet.session_exercise_id == session_exercise_id,
+            )
+        )
+    )
+    exercise_set = result.scalar_one_or_none()
+
+    if not exercise_set:
+        raise HTTPException(status_code=404, detail="Set not found")
+
+    await db.delete(exercise_set)
+    await db.commit()
+
 
 # ─── Exercise Catalog ─────────────────────────────────────────────────────────
 

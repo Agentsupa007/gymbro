@@ -353,6 +353,7 @@ export default function ActiveWorkout() {
                 <ExerciseLogger
                   key={ex.id}
                   exercise={ex}
+                  sessionId={sessionId}
                   disabled={isCompleted}
                 />
               ))}

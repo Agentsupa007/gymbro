@@ -51,7 +51,7 @@ const emptyRow = (setNumber, genId) => ({
   done: false,
 });
 
-export default function ExerciseLogger({ exercise, disabled = false }) {
+export default function ExerciseLogger({ exercise, sessionId, disabled = false }) {
   // Fix #7 — one ID generator per component instance
   const genId = useRef(makeIdGen()).current;
 
@@ -172,7 +172,7 @@ export default function ExerciseLogger({ exercise, disabled = false }) {
             ...(weight !== "" && { weight_kg: Number(weight) }),
           };
 
-          const res = await logSet(exercise.id, payload, controller.signal);
+          const res = await logSet(sessionId, exercise.id, payload, controller.signal);
 
           if (!mountedRef.current) return; // Fix #8
 
@@ -228,7 +228,7 @@ export default function ExerciseLogger({ exercise, disabled = false }) {
       updateRow(localId, { _saving: true, _inFlight: true, _error: null });
 
       try {
-        await deleteSet(currentRow.id, controller.signal);
+        await deleteSet(sessionId, exercise.id, currentRow.id, controller.signal);
         if (!mountedRef.current) return; // Fix #8
         removeAndRenumber(localId); // Fix #6
       } catch (err) {

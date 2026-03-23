@@ -100,7 +100,7 @@ export const getSession = (sessionId, signal) => {
 
 export const completeSession = (sessionId) => {
   requireId(sessionId, "sessionId");
-  return client.post(`/workouts/sessions/${sessionId}/complete`);
+  return client.put(`/workouts/sessions/${sessionId}`, {});
 };
 
 export const addExerciseToSession = (sessionId, data) => {
@@ -109,14 +109,24 @@ export const addExerciseToSession = (sessionId, data) => {
 };
 
 // ─── Sets ─────────────────────────────────────────────────────────────────────
-export const logSet = (sessionExerciseId, data, signal) => {
+export const logSet = (sessionId, sessionExerciseId, data, signal) => {
+  requireId(sessionId, "sessionId");
   requireId(sessionExerciseId, "sessionExerciseId");
-  return client.post(`/workouts/exercises/${sessionExerciseId}/sets`, data, { signal });
+  return client.post(
+    `/workouts/sessions/${sessionId}/exercises/${sessionExerciseId}/sets`,
+    data,
+    { signal }
+  );
 };
 
-export const deleteSet = (setId, signal) => {
+export const deleteSet = (sessionId, sessionExerciseId, setId, signal) => {
+  requireId(sessionId, "sessionId");
+  requireId(sessionExerciseId, "sessionExerciseId");
   requireId(setId, "setId");
-  return client.delete(`/workouts/sets/${setId}`, { signal });
+  return client.delete(
+    `/workouts/sessions/${sessionId}/exercises/${sessionExerciseId}/sets/${setId}`,
+    { signal }
+  );
 };
 
 // ─── Daily Metrics ────────────────────────────────────────────────────────────
