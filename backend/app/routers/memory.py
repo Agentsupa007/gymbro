@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 
@@ -6,7 +6,8 @@ from app.core.database import get_db
 from app.core.dependencies import get_current_user
 from app.models.user import User
 from app.models.memory import MemoryFact, FactCategoryEnum
-from app.schemas.memory import MemoryFactOut, MemoryFactsResponse
+from app.schemas.memory import MemoryFactOut, MemoryFactsResponse, WeeklySummaryOut
+from app.services.summary_service import generate_weekly_summary, get_week_bounds
 
 router = APIRouter(prefix="/memory", tags=["memory"])
 
@@ -89,3 +90,52 @@ async def delete_memory_fact(
 
     fact.is_active = False
     await db.commit()
+
+
+# ─── POST /memory/summarize ───────────────────────────────────────────────────
+
+@router.post("/summarize", response_model=WeeklySummaryOut)
+async def trigger_weekly_summary(
+    week_offset: int = Query(
+        default=0,
+        ge=0,
+        le=52,
+        description="0 = current week, 1 = last week, 2 = two weeks ago, etc."
+    ),
+    current_user: User = Depends(get_current_user),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Manually trigger the weekly summary pipeline for the current user.
+
+    Useful for testing without waiting for the Sunday 23:59 cron job.
+
+    - week_offset=0  → summarise the current (ongoing) week
+    - week_offset=1  → summarise last week (recommended for a complete data set)
+
+    Returns the structured summary JSON on success, or a detail message
+    if there was insufficient activity to generate a summary.
+    """
+    week_start, week_end = get_week_bounds(offset=week_offset)
+
+    result = await generate_weekly_summary(
+        user_id=str(current_user.id),
+        week_start=week_start,
+        week_end=week_end,
+        db=db,
+    )
+
+    if result is None:
+        raise HTTPException(
+            status_code=status.HTTP_200_OK,
+            detail=(
+                f"Insufficient activity for week {week_start} → {week_end}. "
+                "Summary skipped. Chat with GymBro or log some metrics first."
+            ),
+        )
+
+    return {
+        "week_start": week_start.isoformat(),
+        "week_end": week_end.isoformat(),
+        "summary": result,
+    }

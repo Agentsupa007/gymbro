@@ -1,12 +1,25 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.routers import auth, workouts, metrics, profile, chat, memory
+from app.scheduler.jobs import start_scheduler, stop_scheduler
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Start APScheduler on startup, stop it on shutdown."""
+    start_scheduler()
+    yield
+    stop_scheduler()
+
 
 app = FastAPI(
     title="GymBro API",
     version="1.0.0",
-    debug=settings.DEBUG
+    debug=settings.DEBUG,
+    lifespan=lifespan,
 )
 
 # CORS — allows React frontend to talk to FastAPI

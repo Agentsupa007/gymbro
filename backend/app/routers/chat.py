@@ -12,6 +12,7 @@ from app.schemas.chat import ChatMessageRequest, ChatHistoryResponse, MessageOut
 from app.services.llm_service import stream_chat_response
 from app.services.memory_service import process_message_for_memory, get_relevant_memories
 from app.services.metrics_service import get_metrics_summary
+from app.services.embedding_service import _get_chroma_collections
 
 router = APIRouter(prefix="/chat", tags=["chat"])
 
@@ -93,6 +94,35 @@ async def _build_context(
     except Exception as e:
         import logging
         logging.getLogger(__name__).error(f"Context: memory retrieval failed: {e}")
+
+    # ── Weekly Summary (most recent — ChromaDB summaries collection) ──────────
+    try:
+        _, summaries_col = _get_chroma_collections()
+        results = summaries_col.get(
+            where={"user_id": user_id},
+            include=["metadatas", "documents"],
+        )
+        if results["ids"]:
+            # Sort by timestamp descending, take the most recent
+            items = list(zip(results["metadatas"], results["documents"]))
+            items.sort(key=lambda x: x[0].get("timestamp", 0), reverse=True)
+            latest_meta, latest_doc = items[0]
+
+            import json as _json
+            # The document is the narrative text; full JSON is in Postgres.
+            # We surface the narrative inline and leave structured fields for
+            # the system prompt to format nicely.
+            context["weekly_summary"] = {
+                "narrative": latest_doc,
+                "activity_score": latest_meta.get("activity_score"),
+            }
+            import logging
+            logging.getLogger(__name__).debug(
+                f"Retrieved weekly summary for user {user_id}"
+            )
+    except Exception as e:
+        import logging
+        logging.getLogger(__name__).error(f"Context: weekly summary retrieval failed: {e}")
 
     return context
 

@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from datetime import datetime
+from datetime import date, datetime
 from typing import Optional
 from app.models.memory import FactCategoryEnum
 
@@ -40,3 +40,23 @@ class MemoryFactsResponse(BaseModel):
     """Paginated list of memory facts."""
     facts: list[MemoryFactOut]
     total: int
+
+
+# ─── Weekly Summary Schemas ───────────────────────────────────────────────────
+# Used by POST /memory/summarize
+
+class WeeklySummaryData(BaseModel):
+    """The structured JSON returned by the Gemini summary pipeline."""
+    narrative: str
+    highlights: list[str] = []
+    concerns: list[str] = []
+    trends: list[str] = []
+    focus_next_week: list[str] = []
+    activity_score: int = Field(ge=0, le=100)
+
+
+class WeeklySummaryOut(BaseModel):
+    """Response shape for POST /memory/summarize."""
+    week_start: date
+    week_end: date
+    summary: WeeklySummaryData

@@ -80,7 +80,7 @@ class ConversationSummary(Base):
     conversation_id = Column(
         String,
         ForeignKey("conversations.id"),
-        nullable=False,
+        nullable=True,   # weekly summaries are not tied to a single conversation
         index=True
     )
     user_id = Column(

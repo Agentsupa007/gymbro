@@ -119,6 +119,27 @@ def _memories_section(memories: list[dict]) -> str:
     return "\n".join(lines) if len(lines) > 2 else ""
 
 
+def _weekly_summary_section(summary: dict) -> str:
+    """
+    Render the most recent weekly summary narrative.
+    summary dict has keys: narrative, activity_score.
+    """
+    if not summary:
+        return ""
+
+    narrative = summary.get("narrative", "").strip()
+    if not narrative:
+        return ""
+
+    score = summary.get("activity_score")
+    lines = ["## Last Week's Summary"]
+    if score is not None:
+        lines.append(f"(Activity score: {score}/100)")
+    lines.append(narrative)
+
+    return "\n".join(lines)
+
+
 # ─── Main Builder ─────────────────────────────────────────────────────────────
 
 def build_system_prompt(context: dict | None = None) -> str:
@@ -127,9 +148,10 @@ def build_system_prompt(context: dict | None = None) -> str:
 
     Args:
         context: optional dict with any of these keys:
-            - profile  : dict — user profile fields
-            - stats    : dict — recent metrics summary
-            - memories : list[dict] — retrieved ChromaDB facts
+            - profile        : dict — user profile fields
+            - stats          : dict — recent metrics summary
+            - memories       : list[dict] — retrieved ChromaDB facts
+            - weekly_summary : dict — most recent weekly reflection
 
     Returns:
         A single string passed to GenerateContentConfig(system_instruction=...)
@@ -151,10 +173,14 @@ def build_system_prompt(context: dict | None = None) -> str:
     if memories_block:
         sections.append(memories_block)
 
+    weekly_block = _weekly_summary_section(context.get("weekly_summary") or {})
+    if weekly_block:
+        sections.append(weekly_block)
+
     if len(sections) > 1:
         sections.append(
             "## Instructions\n"
-            "Use the profile, stats, and memory above to personalise your responses. "
+            "Use the profile, stats, memory, and weekly summary above to personalise your responses. "
             "Reference them naturally — never dump raw data at the user. "
             "If the user says something that contradicts a memory, trust the new message."
         )
