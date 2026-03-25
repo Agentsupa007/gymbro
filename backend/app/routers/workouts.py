@@ -17,6 +17,7 @@ from app.schemas.workout import (
     SessionExerciseCreate,
     SessionExerciseOut,
     SetCreate,
+    SetUpdate,
     SetOut,
     ExerciseCatalogOut,
 )
@@ -148,6 +149,29 @@ async def log_set(
         db,
         session_id,
         session_exercise_id,
+        current_user.id,
+        data,
+    )
+
+
+@router.put(
+    "/sessions/{session_id}/exercises/{session_exercise_id}/sets/{set_id}",
+    response_model=SetOut,
+    status_code=status.HTTP_200_OK,
+)
+async def update_set(
+    session_id: str,
+    session_exercise_id: str,
+    set_id: str,
+    data: SetUpdate,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    return await workout_service.update_set(
+        db,
+        session_id,
+        session_exercise_id,
+        set_id,
         current_user.id,
         data,
     )

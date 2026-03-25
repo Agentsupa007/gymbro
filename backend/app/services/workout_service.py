@@ -23,6 +23,7 @@ from app.schemas.workout import (
     SessionComplete,
     SessionExerciseCreate,
     SetCreate,
+    SetUpdate,
 )
 
 
@@ -56,6 +57,7 @@ async def create_plan(
                 exercise_name=ex.exercise_name,
                 sets=ex.sets,
                 reps=ex.reps,
+                weight_kg=ex.weight_kg,
                 order_index=ex.order_index,
             )
         )
@@ -121,18 +123,47 @@ async def create_session(
     data: SessionCreate,
 ) -> WorkoutSession:
 
+    plan = None
     if data.plan_id:
-        await _get_plan_or_404(db, data.plan_id, user_id)
+        plan = await _get_plan_or_404(db, data.plan_id, user_id)
 
     session = WorkoutSession(
         user_id=user_id,
         plan_id=data.plan_id,
+        name=plan.name if plan else None,
         notes=data.notes,
         status=SessionStatusEnum.in_progress,
         started_at=_utcnow(),
     )
 
     db.add(session)
+    await db.flush()  # get session.id before adding children
+
+    if plan and plan.plan_exercises:
+        sorted_exercises = sorted(
+            plan.plan_exercises,
+            key=lambda e: (e.order_index or 0),
+        )
+        for ex in sorted_exercises:
+            session_exercise = SessionExercise(
+                session_id=session.id,
+                exercise_name=ex.exercise_name,
+                order_index=ex.order_index,
+            )
+            db.add(session_exercise)
+            await db.flush()  # get session_exercise.id
+
+            num_sets = ex.sets or 0
+            for set_num in range(1, num_sets + 1):
+                db.add(
+                    ExerciseSet(
+                        session_exercise_id=session_exercise.id,
+                        set_number=set_num,
+                        reps=ex.reps,
+                        weight_kg=ex.weight_kg,
+                    )
+                )
+
     await db.commit()
 
     return await _get_session_or_404(db, session.id, user_id)
@@ -320,6 +351,52 @@ async def log_set(
     await db.refresh(exercise_set)
 
     return exercise_set
+
+# ─── Update Set ─────────────────────────────────────────────────────────────
+
+async def update_set(
+    db: AsyncSession,
+    session_id: str,
+    session_exercise_id: str,
+    set_id: str,
+    user_id: str,
+    data: SetUpdate,
+) -> ExerciseSet:
+
+    session = await _get_session_or_404(db, session_id, user_id)
+
+    if session.status != SessionStatusEnum.in_progress:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Cannot update sets on a completed or cancelled session",
+        )
+
+    result = await db.execute(
+        select(ExerciseSet)
+        .where(
+            and_(
+                ExerciseSet.id == set_id,
+                ExerciseSet.session_exercise_id == session_exercise_id,
+            )
+        )
+    )
+    exercise_set = result.scalar_one_or_none()
+
+    if not exercise_set:
+        raise HTTPException(status_code=404, detail="Set not found")
+
+    if data.reps is not None:
+        exercise_set.reps = data.reps
+    if data.weight_kg is not None:
+        exercise_set.weight_kg = data.weight_kg
+    if data.notes is not None:
+        exercise_set.notes = data.notes
+
+    await db.commit()
+    await db.refresh(exercise_set)
+
+    return exercise_set
+
 
 # ─── Delete Set ─────────────────────────────────────────────────────────────
 

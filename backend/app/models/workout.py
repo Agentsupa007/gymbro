@@ -74,6 +74,7 @@ class PlanExercise(Base):
     exercise_name = Column(String(255), primary_key=True)
     sets = Column(Integer, nullable=True)
     reps = Column(Integer, nullable=True)
+    weight_kg = Column(Float, nullable=True)
     order_index = Column(Integer, nullable=True)
 
     plan = relationship("WorkoutPlan", back_populates="plan_exercises")
@@ -85,6 +86,7 @@ class WorkoutSession(Base):
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     user_id = Column(String, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     plan_id = Column(String(36), ForeignKey("workout_plans.id", ondelete="SET NULL"), nullable=True)
+    name = Column(String(255), nullable=True)
     status = Column(Enum(SessionStatusEnum), nullable=False, default=SessionStatusEnum.in_progress)
     notes = Column(Text, nullable=True)
     started_at = Column(DateTime(timezone=True), nullable=False)

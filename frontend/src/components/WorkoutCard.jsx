@@ -84,11 +84,12 @@ export default function WorkoutCard({ plan, onStart, starting = false }) {
                 <span style={{ fontSize: "12px", color: "#8892a4" }}>
                   {ex.exercise_name}
                 </span>
-                {(ex.sets || ex.reps) && (
+                {(ex.sets || ex.reps || ex.weight_kg) && (
                   <span style={{ fontSize: "11px", color: "#4a5568" }}>
-                    {ex.sets && `${ex.sets} sets`}
-                    {ex.sets && ex.reps && " × "}
-                    {ex.reps && `${ex.reps} reps`}
+                    {ex.sets && `${ex.sets}`}
+                    {ex.sets && ex.reps && "×"}
+                    {ex.reps && `${ex.reps}`}
+                    {ex.weight_kg ? ` @ ${ex.weight_kg}kg` : ""}
                   </span>
                 )}
               </div>

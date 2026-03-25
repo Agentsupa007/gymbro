@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import WorkoutCard from "../components/WorkoutCard";
 import FilterChips from "../components/FilterChips";
+import CreatePlanModal from "../components/CreatePlanModal";
 import client from "../api/client";
 
 import { useNavigate } from "react-router-dom";
@@ -12,9 +13,14 @@ export default function WorkoutPlans() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState("all");
+  const [showModal, setShowModal] = useState(false);
 
   const navigate = useNavigate();
   const [startingPlanId, setStartingPlanId] = useState(null);
+
+  const handlePlanCreated = (newPlan) => {
+    setPlans((prev) => [newPlan, ...prev]);
+  };
 
   const handleStartSession = async (planId) => {
     if (startingPlanId) return;
@@ -90,6 +96,7 @@ export default function WorkoutPlans() {
           </div>
 
           <div
+            onClick={() => setShowModal(true)}
             style={{
               display: "flex",
               alignItems: "center",
@@ -104,6 +111,8 @@ export default function WorkoutPlans() {
               cursor: "pointer",
               fontFamily: "'DM Mono', monospace",
             }}
+            role="button"
+            aria-label="Create new workout plan"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
               <line x1="12" y1="5" x2="12" y2="19" />
@@ -234,6 +243,13 @@ export default function WorkoutPlans() {
           50% { opacity: 0.4; }
         }
       `}</style>
+
+      {showModal && (
+        <CreatePlanModal
+          onClose={() => setShowModal(false)}
+          onCreated={handlePlanCreated}
+        />
+      )}
     </Layout>
   );
 }

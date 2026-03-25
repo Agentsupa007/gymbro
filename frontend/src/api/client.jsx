@@ -133,6 +133,17 @@ export const deleteSet = (sessionId, sessionExerciseId, setId, signal) => {
   );
 };
 
+export const updateSet = (sessionId, sessionExerciseId, setId, data, signal) => {
+  requireId(sessionId, "sessionId");
+  requireId(sessionExerciseId, "sessionExerciseId");
+  requireId(setId, "setId");
+  return client.put(
+    `/workouts/sessions/${sessionId}/exercises/${sessionExerciseId}/sets/${setId}`,
+    data,
+    { signal }
+  );
+};
+
 // ─── Daily Metrics ────────────────────────────────────────────────────────────
 export const logDailyMetrics = (data) =>
   client.post("/metrics/daily", data);

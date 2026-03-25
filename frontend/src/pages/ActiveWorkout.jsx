@@ -180,6 +180,14 @@ export default function ActiveWorkout() {
   const isCompleted = session?.status === "completed";
   const exercises = session?.session_exercises ?? [];
 
+  // Progress bar: count sets that have been logged (have a backend id)
+  const totalSets = exercises.reduce((sum, ex) => sum + (ex.sets?.length ?? 0), 0);
+  const doneSets = exercises.reduce(
+    (sum, ex) => sum + (ex.sets?.filter((s) => s.id).length ?? 0),
+    0
+  );
+  const progressPct = totalSets > 0 ? Math.round((doneSets / totalSets) * 100) : 0;
+
   const filteredCatalog = catalog.filter((item) =>
     item.name.toLowerCase().includes(catalogSearch.toLowerCase()) ||
     item.muscle_group?.toLowerCase().includes(catalogSearch.toLowerCase()) ||
@@ -278,7 +286,7 @@ export default function ActiveWorkout() {
                 {isCompleted ? "COMPLETED" : "IN PROGRESS"}
               </p>
               <h1 style={{ fontSize: "22px", fontWeight: "700", color: "#f0f4f8", letterSpacing: "-0.02em" }}>
-                Active Workout
+                {session?.name ?? "Active Workout"}
               </h1>
             </div>
           </div>
@@ -303,6 +311,29 @@ export default function ActiveWorkout() {
               : elapsed || "0s"}
           </div>
         </div>
+
+        {/* ── Progress bar ── */}
+        {totalSets > 0 && (
+          <div style={{ marginBottom: "24px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
+              <span style={{ fontSize: "11px", color: "#4a5568", letterSpacing: "0.05em" }}>SETS COMPLETED</span>
+              <span style={{ fontSize: "11px", fontWeight: "700", color: progressPct === 100 ? "#c8f135" : "#8892a4", fontFamily: "'DM Mono', monospace" }}>
+                {doneSets}/{totalSets}
+              </span>
+            </div>
+            <div style={{ height: "4px", borderRadius: "4px", background: "#1e2130", overflow: "hidden" }}>
+              <div
+                style={{
+                  height: "100%",
+                  width: `${progressPct}%`,
+                  background: progressPct === 100 ? "#c8f135" : "#4a6fa5",
+                  borderRadius: "4px",
+                  transition: "width 0.4s ease",
+                }}
+              />
+            </div>
+          </div>
+        )}
 
         {/* ── Completed banner ── */}
         {isCompleted && (
