@@ -64,6 +64,19 @@ class ProfileUpdate(BaseModel):
     activity_level: Optional[ActivityLevelEnum] = None
 
 
+class OnboardingSubmit(BaseModel):
+    full_name: str = Field(min_length=1, max_length=255)
+    age: int = Field(ge=10, le=120)
+    gender: GenderEnum
+    height_cm: float = Field(gt=0, le=300)
+    weight_kg: float = Field(gt=0, le=500)
+    fitness_goal: str = Field(min_length=1, max_length=500)
+    activity_level: ActivityLevelEnum
+    experience_level: str = Field(pattern="^(beginner|intermediate|advanced)$")
+    injuries: Optional[str] = Field(None, max_length=1000)
+    preferences: Optional[str] = Field(None, max_length=1000)
+
+
 class ProfileOut(BaseModel):
     id: str
     user_id: str
@@ -91,6 +104,10 @@ class ProfileWithUserOut(BaseModel):
     weight_kg: Optional[float] = None
     fitness_goal: Optional[str] = None
     activity_level: Optional[ActivityLevelEnum] = None
+    experience_level: Optional[str] = None
+    injuries: Optional[str] = None
+    preferences: Optional[str] = None
+    onboarding_complete: bool = False
     is_active: bool
     created_at: datetime
     updated_at: datetime

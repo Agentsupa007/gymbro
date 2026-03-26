@@ -13,6 +13,7 @@ import ActiveWorkout from "./pages/ActiveWorkout";
 import Progress from "./pages/Progress";
 import Chat from "./pages/Chat";
 import Profile from "./pages/Profile";
+import Onboarding from "./pages/Onboarding";
 
 // ─── Inner component so useNavigate is inside BrowserRouter ──────────────────
 import { useNavigate } from "react-router-dom";
@@ -35,6 +36,9 @@ export default function App() {
           {/* Public */}
           <Route path="/login"    element={<Login />}    />
           <Route path="/register" element={<Register />} />
+
+          {/* Onboarding — protected (must be logged in) but accessible before onboarding_complete */}
+          <Route path="/onboarding" element={<ProtectedRoute><Onboarding /></ProtectedRoute>} />
 
           {/* Protected */}
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />

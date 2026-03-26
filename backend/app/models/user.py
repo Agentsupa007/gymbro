@@ -1,5 +1,5 @@
 # backend/app/models/user.py
-from sqlalchemy import Column, String, Boolean, DateTime, Integer, Float, Enum, ForeignKey
+from sqlalchemy import Column, String, Boolean, DateTime, Integer, Float, Enum, ForeignKey, Text
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
 import uuid
@@ -54,6 +54,10 @@ class Profile(Base):
     weight_kg = Column(Float)
     fitness_goal = Column(String(255))
     activity_level = Column(Enum(ActivityLevelEnum))
+    experience_level = Column(String(50), nullable=True)   # beginner / intermediate / advanced
+    injuries = Column(Text, nullable=True)
+    preferences = Column(Text, nullable=True)
+    onboarding_complete = Column(Boolean, default=False, nullable=False, server_default="false")
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
