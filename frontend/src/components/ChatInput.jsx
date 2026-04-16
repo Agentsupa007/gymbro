@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 export default function ChatInput({ onSend, isStreaming = false }) {
   const [text, setText] = useState("");
   const textareaRef = useRef(null);
+  const isMobile = useIsMobile();
 
   // Auto-resize textarea as user types
   useEffect(() => {
@@ -21,8 +23,9 @@ export default function ChatInput({ onSend, isStreaming = false }) {
   };
 
   const handleKeyDown = (e) => {
-    // Enter sends, Shift+Enter adds newline
-    if (e.key === "Enter" && !e.shiftKey) {
+    // On desktop: Enter sends, Shift+Enter adds newline
+    // On mobile: never intercept Enter (user should use the send button)
+    if (!isMobile && e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       handleSend();
     }
@@ -30,27 +33,29 @@ export default function ChatInput({ onSend, isStreaming = false }) {
 
   const charCount = text.length;
   const atLimit = charCount >= 4000;
+  const btnSize = isMobile ? "40px" : "32px";
 
   return (
     <div
       style={{
-        padding: "16px 20px",
+        padding: isMobile ? "12px 12px" : "16px 20px",
         borderTop: "1px solid #1e2130",
         background: "#0f1117",
         display: "flex",
         flexDirection: "column",
-        gap: "8px",
+        gap: "6px",
+        flexShrink: 0,
       }}
     >
       <div
         style={{
           display: "flex",
           alignItems: "flex-end",
-          gap: "12px",
+          gap: "10px",
           background: "#161a24",
           border: "1px solid #1e2130",
           borderRadius: "12px",
-          padding: "10px 14px",
+          padding: isMobile ? "10px 12px" : "10px 14px",
           transition: "border-color 0.15s ease",
         }}
         onFocusCapture={(e) => {
@@ -75,7 +80,7 @@ export default function ChatInput({ onSend, isStreaming = false }) {
             border: "none",
             outline: "none",
             resize: "none",
-            fontSize: "13px",
+            fontSize: isMobile ? "16px" : "13px",  // 16px prevents iOS zoom on focus
             color: "#f0f4f8",
             lineHeight: "1.6",
             fontFamily: "inherit",
@@ -90,8 +95,8 @@ export default function ChatInput({ onSend, isStreaming = false }) {
           disabled={!text.trim() || isStreaming}
           style={{
             flexShrink: 0,
-            width: "32px",
-            height: "32px",
+            width: btnSize,
+            height: btnSize,
             borderRadius: "8px",
             border: "none",
             background:
@@ -106,13 +111,13 @@ export default function ChatInput({ onSend, isStreaming = false }) {
             alignItems: "center",
             justifyContent: "center",
             transition: "all 0.15s ease",
-            fontSize: "16px",
+            fontSize: isMobile ? "18px" : "16px",
             fontWeight: "700",
+            WebkitTapHighlightColor: "transparent",
           }}
           aria-label="Send message"
         >
           {isStreaming ? (
-            // Spinner dots while streaming
             <span style={{ fontSize: "10px", letterSpacing: "2px" }}>···</span>
           ) : (
             "↑"
@@ -120,19 +125,21 @@ export default function ChatInput({ onSend, isStreaming = false }) {
         </button>
       </div>
 
-      {/* Footer row — hint + char count */}
+      {/* Footer row — hint (desktop only) + char count */}
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: isMobile ? "flex-end" : "space-between",
           alignItems: "center",
           paddingLeft: "2px",
           paddingRight: "2px",
         }}
       >
-        <span style={{ fontSize: "10px", color: "#2d3748" }}>
-          Enter to send · Shift+Enter for new line
-        </span>
+        {!isMobile && (
+          <span style={{ fontSize: "10px", color: "#2d3748" }}>
+            Enter to send · Shift+Enter for new line
+          </span>
+        )}
         <span
           style={{
             fontSize: "10px",

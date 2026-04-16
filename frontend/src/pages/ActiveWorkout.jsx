@@ -9,6 +9,7 @@ import {
   addExerciseToSession,
   getExerciseCatalog,
 } from "../api/client";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 // ─── Inject hover styles once ─────────────────────────────────────────────────
 const STYLE_ID = "active-workout-styles";
@@ -38,6 +39,7 @@ const formatDuration = (startedAt) => {
 export default function ActiveWorkout() {
   const { sessionId } = useParams();
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
   // ── Session state ──────────────────────────────────────────────────────────
   const [session, setSession] = useState(null);
@@ -219,7 +221,7 @@ export default function ActiveWorkout() {
   if (loadingSession) {
     return (
       <Layout>
-        <div style={{ padding: "36px 40px" }}>
+        <div style={{ padding: isMobile ? "20px 16px" : "36px 40px" }}>
           {[1, 2, 3].map((i) => (
             <div
               key={i}
@@ -243,7 +245,7 @@ export default function ActiveWorkout() {
   if (sessionError) {
     return (
       <Layout>
-        <div style={{ padding: "36px 40px", maxWidth: "640px" }}>
+        <div style={{ padding: isMobile ? "20px 16px" : "36px 40px", maxWidth: "640px" }}>
           <div
             style={{
               padding: "20px 24px",
@@ -277,7 +279,7 @@ export default function ActiveWorkout() {
   // ── Render: main ───────────────────────────────────────────────────────────
   return (
     <Layout>
-      <div style={{ padding: "36px 40px", maxWidth: "760px", width: "100%", overflowY: "auto", flex: 1 }}>
+      <div style={{ padding: isMobile ? "20px 16px" : "36px 40px", maxWidth: "760px", width: "100%", overflowY: "auto", flex: 1 }}>
 
         {/* ── Top bar ── */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "28px" }}>

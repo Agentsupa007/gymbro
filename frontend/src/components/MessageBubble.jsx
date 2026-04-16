@@ -1,5 +1,8 @@
+import { useIsMobile } from "../hooks/useIsMobile";
+
 export default function MessageBubble({ message, isStreaming = false }) {
   const isUser = message.role === "user";
+  const isMobile = useIsMobile();
 
   return (
     <div
@@ -27,7 +30,7 @@ export default function MessageBubble({ message, isStreaming = false }) {
       {/* Bubble */}
       <div
         style={{
-          maxWidth: "72%",
+          maxWidth: isMobile ? "88%" : "72%",
           padding: "12px 16px",
           borderRadius: isUser ? "12px 12px 2px 12px" : "12px 12px 12px 2px",
           background: isUser ? "rgba(200,241,53,0.08)" : "#161a24",

@@ -36,10 +36,12 @@ export default function SetRow({ setNumber, data = DEFAULT_DATA, onChange, onDel
     fontSize: "13px",
     fontWeight: "600",
     textAlign: "center",
-    width: "64px",
+    width: "100%",    // fills the 1fr grid column on any screen size
+    minWidth: 0,      // allows shrinking below content size in flex/grid
     padding: "6px 8px",
     outline: "none",
     transition: "border-color 0.15s ease",
+    boxSizing: "border-box",
   };
 
   // Fix #4 — CSS-based hover using a style tag, no DOM mutation

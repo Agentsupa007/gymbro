@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import ChatWindow from "../components/ChatWindow";
 import ChatInput from "../components/ChatInput";
 import { useChat } from "../hooks/useChat";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 // Inject global keyframe animations once
 const GLOBAL_STYLES = `
@@ -18,6 +19,7 @@ const GLOBAL_STYLES = `
 
 export default function Chat() {
   const { messages, isStreaming, isLoadingHistory, error, sendMessage } = useChat();
+  const isMobile = useIsMobile();
   const styleInjected = useRef(false);
 
   // Inject keyframes once into document head
@@ -40,14 +42,15 @@ export default function Chat() {
         style={{
           display: "flex",
           flexDirection: "column",
-          height: "100vh",        // pin to viewport — don't grow with parent scroll
+          height: "100%",     // fills <main> — no viewport overflow on mobile
           overflow: "hidden",
+          minHeight: 0,       // allows flex children to shrink correctly
         }}
       >
         {/* ─── Header ─────────────────────────────────────────────────── */}
         <div
           style={{
-            padding: "28px 40px 20px",
+            padding: isMobile ? "14px 16px 12px" : "28px 40px 20px",
             borderBottom: "1px solid #1e2130",
             flexShrink: 0,
           }}
@@ -71,7 +74,7 @@ export default function Chat() {
           >
             <h1
               style={{
-                fontSize: "26px",
+                fontSize: isMobile ? "20px" : "26px",
                 fontWeight: "700",
                 color: "#f0f4f8",
                 letterSpacing: "-0.02em",
@@ -82,13 +85,7 @@ export default function Chat() {
             </h1>
 
             {/* Live indicator */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-              }}
-            >
+            <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
               <div
                 style={{
                   width: "6px",
@@ -110,7 +107,7 @@ export default function Chat() {
         {error && (
           <div
             style={{
-              margin: "0 20px",
+              margin: "12px 16px 0",
               padding: "10px 14px",
               background: "rgba(229,62,62,0.08)",
               border: "1px solid rgba(229,62,62,0.2)",
@@ -118,7 +115,6 @@ export default function Chat() {
               fontSize: "12px",
               color: "#fc8181",
               flexShrink: 0,
-              marginTop: "12px",
             }}
           >
             {error}

@@ -7,8 +7,10 @@ import client from "../api/client";
 
 import { useNavigate } from "react-router-dom";
 import { startSession } from "../api/client";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 export default function WorkoutPlans() {
+  const isMobile = useIsMobile();
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -84,7 +86,7 @@ export default function WorkoutPlans() {
 
   return (
     <Layout>
-      <div style={{ padding: "36px 40px", maxWidth: "1100px", width: "100%", overflowY: "auto", flex: 1 }}>
+      <div style={{ padding: isMobile ? "20px 16px" : "36px 40px", maxWidth: "1100px", width: "100%", overflowY: "auto", flex: 1 }}>
 
         {/* Header */}
         <div
@@ -161,7 +163,7 @@ export default function WorkoutPlans() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(300px, 1fr))",
               gap: "16px",
             }}
           >
@@ -227,7 +229,7 @@ export default function WorkoutPlans() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+                gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(300px, 1fr))",
                 gap: "16px",
               }}
             >

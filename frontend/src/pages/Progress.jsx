@@ -5,6 +5,7 @@ import MetricCard from "../components/MetricCard";
 import MetricChart from "../components/MetricChart";
 import LogMetricModal from "../components/LogMetricModal";
 import { getDailyMetrics, getMetricsSummary } from "../api/client";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 // ─── Inject styles once ───────────────────────────────────────────────────────
 const STYLE_ID = "progress-page-styles";
@@ -62,6 +63,7 @@ const SkeletonCard = () => (
 );
 
 export default function Progress() {
+  const isMobile = useIsMobile();
   // ── Data state ─────────────────────────────────────────────────────────────
   const [summary, setSummary] = useState(null);
   const [dailyMetrics, setDailyMetrics] = useState([]);
@@ -181,7 +183,7 @@ export default function Progress() {
 
   return (
     <Layout>
-      <div style={{ padding: "36px 40px", maxWidth: "1000px", width: "100%" }}>
+      <div style={{ padding: isMobile ? "20px 16px" : "36px 40px", maxWidth: "1000px", width: "100%" }}>
 
         {/* ── Header ── */}
         <div
@@ -249,7 +251,9 @@ export default function Progress() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))",
+            gridTemplateColumns: isMobile
+              ? "repeat(2, 1fr)"
+              : "repeat(auto-fill, minmax(180px, 1fr))",
             gap: "14px",
             marginBottom: "36px",
           }}
@@ -355,18 +359,26 @@ export default function Progress() {
             style={{
               display: "flex",
               justifyContent: "space-between",
-              alignItems: "center",
+              alignItems: isMobile ? "flex-start" : "center",
+              flexDirection: isMobile ? "column" : "row",
               marginBottom: "16px",
-              flexWrap: "wrap",
-              gap: "12px",
+              gap: "10px",
             }}
           >
             <p style={{ fontSize: "11px", color: "#4a5568", letterSpacing: "0.1em" }}>
               30-DAY TREND
             </p>
 
-            {/* Chart tab switcher */}
-            <div style={{ display: "flex", gap: "4px" }}>
+            {/* Chart tab switcher — horizontally scrollable on mobile */}
+            <div style={{
+              display: "flex",
+              gap: "4px",
+              overflowX: isMobile ? "auto" : "visible",
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "none",
+              flexShrink: 0,
+              maxWidth: isMobile ? "100%" : "unset",
+            }}>
               {CHART_TABS.map((t) => (
                 <button
                   key={t.key}

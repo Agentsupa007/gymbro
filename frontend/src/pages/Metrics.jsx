@@ -1,9 +1,11 @@
 import Layout from "../components/Layout";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 export default function Metrics() {
+  const isMobile = useIsMobile();
   return (
     <Layout>
-      <div style={{ padding: "36px 40px", overflowY: "auto", flex: 1 }}>
+      <div style={{ padding: isMobile ? "20px 16px" : "36px 40px", overflowY: "auto", flex: 1 }}>
         <p style={{ fontSize: "11px", color: "#4a5568", letterSpacing: "0.1em", marginBottom: "6px" }}>
           TRACKING
         </p>

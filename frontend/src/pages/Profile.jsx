@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Layout from "../components/Layout";
 import { getProfile, updateProfile } from "../api/client";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 // ─── Inject styles once ───────────────────────────────────────────────────────
 const STYLE_ID = "profile-page-styles";
@@ -93,7 +94,7 @@ const Skeleton = ({ height = 40 }) => (
 );
 
 // ─── Input row ────────────────────────────────────────────────────────────────
-function FieldRow({ field, value, editing, onChange }) {
+function FieldRow({ field, value, editing, onChange, isMobile }) {
   const inputStyle = {
     background: editing ? "#0f1117" : "transparent",
     border: "1px solid",
@@ -114,9 +115,9 @@ function FieldRow({ field, value, editing, onChange }) {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "140px 1fr",
-        alignItems: "center",
-        gap: "16px",
+        gridTemplateColumns: isMobile ? "1fr" : "140px 1fr",
+        alignItems: isMobile ? "flex-start" : "center",
+        gap: isMobile ? "4px" : "16px",
         padding: "10px 0",
         borderBottom: "1px solid #1e2130",
       }}
@@ -158,16 +159,16 @@ function FieldRow({ field, value, editing, onChange }) {
 }
 
 // ─── Select row ───────────────────────────────────────────────────────────────
-function SelectRow({ label, fieldKey, value, options, editing, onChange }) {
+function SelectRow({ label, fieldKey, value, options, editing, onChange, isMobile }) {
   const selected = options.find((o) => o.value === value);
 
   return (
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "140px 1fr",
-        alignItems: "center",
-        gap: "16px",
+        gridTemplateColumns: isMobile ? "1fr" : "140px 1fr",
+        alignItems: isMobile ? "flex-start" : "center",
+        gap: isMobile ? "4px" : "16px",
         padding: "10px 0",
         borderBottom: "1px solid #1e2130",
       }}
@@ -227,6 +228,7 @@ function SelectRow({ label, fieldKey, value, options, editing, onChange }) {
 
 // ─── Main component ───────────────────────────────────────────────────────────
 export default function Profile() {
+  const isMobile = useIsMobile();
   const [profile, setProfile]   = useState(null);
   const [form, setForm]         = useState(profileToForm(null));
   const [editing, setEditing]   = useState(false);
@@ -321,7 +323,7 @@ export default function Profile() {
   // ── Render ─────────────────────────────────────────────────────────────────
   return (
     <Layout>
-      <div style={{ padding: "36px 40px", maxWidth: "640px", width: "100%", overflowY: "auto", flex: 1 }}>
+      <div style={{ padding: isMobile ? "20px 16px" : "36px 40px", maxWidth: "640px", width: "100%", overflowY: "auto", flex: 1 }}>
 
         {/* Header */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "32px" }}>
@@ -493,6 +495,7 @@ export default function Profile() {
                   value={form[field.key]}
                   editing={editing}
                   onChange={handleChange}
+                  isMobile={isMobile}
                 />
               ))}
 
@@ -503,6 +506,7 @@ export default function Profile() {
                 options={GENDER_OPTIONS}
                 editing={editing}
                 onChange={handleChange}
+                isMobile={isMobile}
               />
 
               <SelectRow
@@ -512,6 +516,7 @@ export default function Profile() {
                 options={ACTIVITY_OPTIONS}
                 editing={editing}
                 onChange={handleChange}
+                isMobile={isMobile}
               />
             </>
           )}

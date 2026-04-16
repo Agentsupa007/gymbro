@@ -64,7 +64,6 @@ export default function Sidebar() {
     <aside
       style={{
         width: "240px",
-        minHeight: "100vh",
         background: "#0f1117",
         borderRight: "1px solid #1e2130",
         display: "flex",

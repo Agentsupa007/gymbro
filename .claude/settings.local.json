@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(python backend/venv/Scripts/python.exe -c \"import sys; print\\(sys.version\\)\")",
+      "Bash(backend/venv/Scripts/pip.exe install *)",
+      "Bash(backend/venv/Scripts/python.exe -c ' *)",
+      "Bash(docker exec fitness_postgres *)",
+      "Bash(venv/Scripts/pip show *)",
+      "Bash(python *)",
+      "Bash(venv/Scripts/python -c \"import asyncpg, asyncio; asyncio.run\\(asyncpg.connect\\('postgresql://fitness_user:fitness_pass@127.0.0.1:5432/fitness_db'\\)\\)\")",
+      "Bash(npm run *)"
+    ]
+  }
+}

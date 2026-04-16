@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import { useAuth } from "../context/AuthContext";
 import { getDashboardSummary } from "../api/client";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
@@ -172,6 +173,7 @@ const WeightChangeChip = ({ value }) => {
 
 export default function Dashboard() {
   const { user } = useAuth();
+  const isMobile = useIsMobile();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -221,7 +223,7 @@ export default function Dashboard() {
         }
       `}</style>
 
-      <div style={{ padding: "36px 40px", maxWidth: "1100px", width: "100%" }}>
+      <div style={{ padding: isMobile ? "20px 16px" : "36px 40px", maxWidth: "1100px", width: "100%" }}>
 
         {/* Header */}
         <div style={{ marginBottom: "36px" }}>
@@ -268,7 +270,9 @@ export default function Dashboard() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gridTemplateColumns: isMobile
+                ? "repeat(2, 1fr)"
+                : "repeat(auto-fit, minmax(200px, 1fr))",
               gap: "12px",
             }}
           >
@@ -304,8 +308,8 @@ export default function Dashboard() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "24px",
+            gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: isMobile ? "20px" : "24px",
             marginBottom: "36px",
           }}
         >
@@ -316,7 +320,7 @@ export default function Dashboard() {
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(2, 1fr)",
-                gap: "12px",
+                gap: isMobile ? "10px" : "12px",
               }}
             >
               <StatCard
@@ -436,7 +440,7 @@ export default function Dashboard() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+              gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(200px, 1fr))",
               gap: "12px",
             }}
           >
