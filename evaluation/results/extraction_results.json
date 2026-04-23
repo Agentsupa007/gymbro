@@ -1,0 +1,1110 @@
+{
+  "summary": {
+    "avg_precision": 0.1535,
+    "avg_recall": 0.6428,
+    "avg_f1": 0.2475,
+    "avg_category_accuracy": 1.0
+  },
+  "per_user": [
+    {
+      "user_id": "eval_abhinav",
+      "name": "Abhinav Bhardwaj",
+      "ground_truth_count": 6,
+      "extracted_count": 23,
+      "matched": 2,
+      "precision": 0.087,
+      "recall": 0.3333,
+      "f1": 0.1379,
+      "category_accuracy": 1.0,
+      "extracted_facts": [
+        {
+          "category": "personal",
+          "fact": "User has no prior experience with structured exercise",
+          "confidence": 98
+        },
+        {
+          "category": "goal",
+          "fact": "User wants to start exercising",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User has mild asthma",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User's asthma is mostly exercise-induced",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User carries an inhaler for their asthma",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User has not yet tested their physical limits due to uncertainty about their asthma's reaction",
+          "confidence": 90
+        },
+        {
+          "category": "goal",
+          "fact": "User's main goal is to get fit",
+          "confidence": 95
+        },
+        {
+          "category": "goal",
+          "fact": "User's main goal is to lose belly fat",
+          "confidence": 95
+        },
+        {
+          "category": "goal",
+          "fact": "User's main goal is to feel more confident",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User prefers a non-extreme approach to fitness",
+          "confidence": 90
+        },
+        {
+          "category": "emotion",
+          "fact": "User experiences anxiety about going to the gym due to feeling self-conscious and inadequate compared to others",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User spends 8-10 hours a day on their PC for gaming and studying",
+          "confidence": 95
+        },
+        {
+          "category": "personal",
+          "fact": "User has an extremely sedentary lifestyle",
+          "confidence": 98
+        },
+        {
+          "category": "preference",
+          "fact": "User prefers to work out at home",
+          "confidence": 90
+        },
+        {
+          "category": "emotion",
+          "fact": "User is self-conscious about working out in front of others at a gym",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User dislikes going to the gym due to feeling self-conscious",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User has asthma",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "Running triggers user's asthma",
+          "confidence": 90
+        },
+        {
+          "category": "preference",
+          "fact": "User prefers to go to the gym when it is least crowded or empty",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User has no home workout equipment other than a yoga mat",
+          "confidence": 98
+        },
+        {
+          "category": "emotion",
+          "fact": "User needs external motivation, especially in the early stages of their fitness journey",
+          "confidence": 90
+        },
+        {
+          "category": "personal",
+          "fact": "User has no prior training experience",
+          "confidence": 95
+        },
+        {
+          "category": "emotion",
+          "fact": "User has low confidence regarding their fitness level compared to peers",
+          "confidence": 90
+        }
+      ],
+      "missed_gt_facts": [
+        {
+          "id": "gt_abhinav_002",
+          "category": "goal",
+          "fact": "User wants to build overall fitness, improve confidence, and reduce belly fat"
+        },
+        {
+          "id": "gt_abhinav_003",
+          "category": "emotion",
+          "fact": "User has persistent social anxiety about being judged and observed at the gym as a beginner"
+        },
+        {
+          "id": "gt_abhinav_004",
+          "category": "preference",
+          "fact": "User strongly prefers working out alone and wants to avoid crowded peak gym hours"
+        },
+        {
+          "id": "gt_abhinav_006",
+          "category": "personal",
+          "fact": "User is a complete beginner who has never followed a structured workout routine"
+        }
+      ]
+    },
+    {
+      "user_id": "eval_aditya",
+      "name": "Aditya Singh",
+      "ground_truth_count": 6,
+      "extracted_count": 23,
+      "matched": 5,
+      "precision": 0.2174,
+      "recall": 0.8333,
+      "f1": 0.3448,
+      "category_accuracy": 1.0,
+      "extracted_facts": [
+        {
+          "category": "goal",
+          "fact": "User's goal is body recomposition, aiming to lose fat and gain muscle simultaneously",
+          "confidence": 95
+        },
+        {
+          "category": "personal",
+          "fact": "User's current body fat percentage is approximately 22%",
+          "confidence": 95
+        },
+        {
+          "category": "personal",
+          "fact": "User works in IT",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User frequently stays up until 1-2 AM due to project deadlines",
+          "confidence": 90
+        },
+        {
+          "category": "habit",
+          "fact": "User typically gets 5-6 hours of sleep per night",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User has a severe nut allergy, requiring an EpiPen",
+          "confidence": 99
+        },
+        {
+          "category": "limitation",
+          "fact": "User cannot consume peanuts, almonds, or cashews due to allergy",
+          "confidence": 99
+        },
+        {
+          "category": "habit",
+          "fact": "User has a history of inconsistent gym attendance over the past two years",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User's typical gym attendance pattern involves going for approximately 3 weeks followed by a 2-month break",
+          "confidence": 95
+        },
+        {
+          "category": "achievement",
+          "fact": "User did not miss a single training session in the past month",
+          "confidence": 98
+        },
+        {
+          "category": "habit",
+          "fact": "User trained 4 days a week consistently for the past month",
+          "confidence": 95
+        },
+        {
+          "category": "achievement",
+          "fact": "User has achieved consistent training for the first time in 2 years",
+          "confidence": 98
+        },
+        {
+          "category": "limitation",
+          "fact": "User has a dietary restriction against nuts",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User has dietary restrictions that affect their choice of pre-workout supplements",
+          "confidence": 90
+        },
+        {
+          "category": "habit",
+          "fact": "User's past training inconsistency was due to attempting too much too soon",
+          "confidence": 90
+        },
+        {
+          "category": "habit",
+          "fact": "User previously trained 6 days a week without a plan, which contributed to inconsistency",
+          "confidence": 90
+        },
+        {
+          "category": "personal",
+          "fact": "User does not own a scale that measures body fat",
+          "confidence": 95
+        },
+        {
+          "category": "goal",
+          "fact": "User is currently attempting body recomposition",
+          "confidence": 90
+        },
+        {
+          "category": "emotion",
+          "fact": "User is frustrated by a lack of visible progress in their body recomposition efforts",
+          "confidence": 95
+        },
+        {
+          "category": "emotion",
+          "fact": "User is afraid of reverting to old habits",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User is currently following an upper-lower workout split 4 days a week",
+          "confidence": 95
+        },
+        {
+          "category": "personal",
+          "fact": "User has 22% body fat",
+          "confidence": 95
+        },
+        {
+          "category": "goal",
+          "fact": "User's goal is body recomposition",
+          "confidence": 90
+        }
+      ],
+      "missed_gt_facts": [
+        {
+          "id": "gt_aditya_003",
+          "category": "limitation",
+          "fact": "User has a severe nut allergy and must avoid all nut-based products"
+        }
+      ]
+    },
+    {
+      "user_id": "eval_anshul",
+      "name": "Anshul Tiwari",
+      "ground_truth_count": 6,
+      "extracted_count": 26,
+      "matched": 6,
+      "precision": 0.2308,
+      "recall": 1.0,
+      "f1": 0.375,
+      "category_accuracy": 1.0,
+      "extracted_facts": [
+        {
+          "category": "event",
+          "fact": "User has a 10K race scheduled in March",
+          "confidence": 99
+        },
+        {
+          "category": "goal",
+          "fact": "User's goal for the March 10K is to finish under 55 minutes",
+          "confidence": 99
+        },
+        {
+          "category": "personal",
+          "fact": "User's current 10K running time is approximately 62-63 minutes",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User experiences shin splints in their left leg",
+          "confidence": 98
+        },
+        {
+          "category": "limitation",
+          "fact": "User's shin splints flare up when mileage is increased too fast",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User is vegan",
+          "confidence": 99
+        },
+        {
+          "category": "preference",
+          "fact": "User avoids meat, eggs, and dairy",
+          "confidence": 99
+        },
+        {
+          "category": "habit",
+          "fact": "User frequently eats lentils, tofu, and tempeh for protein",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User loves running outside",
+          "confidence": 98
+        },
+        {
+          "category": "preference",
+          "fact": "User prefers running in the morning",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User dislikes treadmills",
+          "confidence": 98
+        },
+        {
+          "category": "habit",
+          "fact": "User does yoga 3 times a week",
+          "confidence": 98
+        },
+        {
+          "category": "goal",
+          "fact": "User does yoga for flexibility and recovery",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User has tight hips",
+          "confidence": 90
+        },
+        {
+          "category": "emotion",
+          "fact": "User experiences significant anxiety before races and time trials",
+          "confidence": 95
+        },
+        {
+          "category": "emotion",
+          "fact": "User's performance drops due to pre-race anxiety",
+          "confidence": 92
+        },
+        {
+          "category": "limitation",
+          "fact": "User has recurring shin splints",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User is currently experiencing shin splint pain in their left shin",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User has a vegan dietary preference",
+          "confidence": 99
+        },
+        {
+          "category": "limitation",
+          "fact": "User has a history of shin splints",
+          "confidence": 85
+        },
+        {
+          "category": "goal",
+          "fact": "User has a goal to achieve a 55-minute time for an unspecified event by March",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User dislikes treadmill sessions",
+          "confidence": 90
+        },
+        {
+          "category": "habit",
+          "fact": "User struggles to hit their protein targets",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User is looking for vegan protein powder options",
+          "confidence": 85
+        },
+        {
+          "category": "emotion",
+          "fact": "User experiences increasing anxiety before races",
+          "confidence": 95
+        },
+        {
+          "category": "emotion",
+          "fact": "User sometimes feels nauseous at the starting line of races",
+          "confidence": 90
+        }
+      ],
+      "missed_gt_facts": []
+    },
+    {
+      "user_id": "eval_ronak",
+      "name": "Ronak Patwa",
+      "ground_truth_count": 6,
+      "extracted_count": 24,
+      "matched": 3,
+      "precision": 0.125,
+      "recall": 0.5,
+      "f1": 0.2,
+      "category_accuracy": 1.0,
+      "extracted_facts": [
+        {
+          "category": "personal",
+          "fact": "User has been lifting weights for approximately 8 months",
+          "confidence": 95
+        },
+        {
+          "category": "achievement",
+          "fact": "User currently benches 75kg",
+          "confidence": 95
+        },
+        {
+          "category": "goal",
+          "fact": "User's goal is to bench press 100kg",
+          "confidence": 99
+        },
+        {
+          "category": "habit",
+          "fact": "User follows a PPL (Push Pull Legs) training split",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User trains 5 days a week",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User finds the PPL training split effective for them",
+          "confidence": 90
+        },
+        {
+          "category": "limitation",
+          "fact": "User's lower back consistently gets tight and stiff for a day or two after heavy deadlifts",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User never eats breakfast",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User cannot eat before 12pm",
+          "confidence": 98
+        },
+        {
+          "category": "habit",
+          "fact": "User trains in the evening, usually between 6 PM and 8 PM",
+          "confidence": 95
+        },
+        {
+          "category": "personal",
+          "fact": "User's college schedule dictates their evening training time",
+          "confidence": 95
+        },
+        {
+          "category": "event",
+          "fact": "User has 'Placements' coming up in 2 months",
+          "confidence": 95
+        },
+        {
+          "category": "emotion",
+          "fact": "User is experiencing stress related to upcoming 'Placements'",
+          "confidence": 90
+        },
+        {
+          "category": "limitation",
+          "fact": "User tends to round their lower back during heavy deadlifts",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User experiences tightness, potentially related to their deadlift form",
+          "confidence": 85
+        },
+        {
+          "category": "limitation",
+          "fact": "User believes their triceps are a weak link in their bench press",
+          "confidence": 95
+        },
+        {
+          "category": "personal",
+          "fact": "User weighs 72 kg",
+          "confidence": 99
+        },
+        {
+          "category": "habit",
+          "fact": "User currently consumes approximately 100-120g of protein per day",
+          "confidence": 90
+        },
+        {
+          "category": "event",
+          "fact": "User is currently undergoing placement preparation, which impacts their gym attendance",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User occasionally skips gym sessions due to placement preparation",
+          "confidence": 90
+        },
+        {
+          "category": "habit",
+          "fact": "User is currently following a PPL (Push/Pull/Legs) workout split",
+          "confidence": 85
+        },
+        {
+          "category": "event",
+          "fact": "User has an upcoming exam season that may impact their training schedule",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User trains completely fasted",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User skips breakfast",
+          "confidence": 95
+        }
+      ],
+      "missed_gt_facts": [
+        {
+          "id": "gt_ronak_001",
+          "category": "goal",
+          "fact": "User wants to bench press 100 kg, currently lifts 75 kg"
+        },
+        {
+          "id": "gt_ronak_003",
+          "category": "preference",
+          "fact": "User prefers to work out in the evenings between 6-8pm"
+        },
+        {
+          "id": "gt_ronak_005",
+          "category": "event",
+          "fact": "User has engineering placement exams in approximately 2 months causing significant stress"
+        }
+      ]
+    },
+    {
+      "user_id": "eval_siddhant",
+      "name": "Siddhant Arya",
+      "ground_truth_count": 6,
+      "extracted_count": 26,
+      "matched": 6,
+      "precision": 0.2308,
+      "recall": 1.0,
+      "f1": 0.375,
+      "category_accuracy": 1.0,
+      "extracted_facts": [
+        {
+          "category": "achievement",
+          "fact": "User has been selected for the state basketball team for the first time",
+          "confidence": 99
+        },
+        {
+          "category": "event",
+          "fact": "User has a state basketball tournament in 6 weeks",
+          "confidence": 99
+        },
+        {
+          "category": "goal",
+          "fact": "User aims to peak their performance for the upcoming state basketball tournament",
+          "confidence": 95
+        },
+        {
+          "category": "goal",
+          "fact": "User's main physical goal is to add 5 inches to their vertical jump",
+          "confidence": 99
+        },
+        {
+          "category": "habit",
+          "fact": "User practices 16:8 intermittent fasting",
+          "confidence": 98
+        },
+        {
+          "category": "habit",
+          "fact": "User has been practicing intermittent fasting for approximately one year",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User finds intermittent fasting effective for body composition",
+          "confidence": 90
+        },
+        {
+          "category": "habit",
+          "fact": "User is currently doing two-a-day workouts",
+          "confidence": 98
+        },
+        {
+          "category": "habit",
+          "fact": "User's morning workouts consist of skill work and conditioning",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User's evening workouts consist of weights",
+          "confidence": 95
+        },
+        {
+          "category": "emotion",
+          "fact": "User finds their current two-a-day training schedule to be intense or challenging",
+          "confidence": 85
+        },
+        {
+          "category": "limitation",
+          "fact": "User has a history of recurring right ankle sprains",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User's right ankle sprains are triggered by heavy plyometric load",
+          "confidence": 92
+        },
+        {
+          "category": "emotion",
+          "fact": "User has been feeling drained for the last two weeks",
+          "confidence": 90
+        },
+        {
+          "category": "emotion",
+          "fact": "User finds every workout session harder than it should be",
+          "confidence": 90
+        },
+        {
+          "category": "emotion",
+          "fact": "User dreads waking up for morning practice",
+          "confidence": 95
+        },
+        {
+          "category": "event",
+          "fact": "User has an upcoming tournament",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User's body is signaling fatigue or strain",
+          "confidence": 90
+        },
+        {
+          "category": "emotion",
+          "fact": "User is experiencing stress or conflict regarding training intensity due to physical signals",
+          "confidence": 88
+        },
+        {
+          "category": "habit",
+          "fact": "User fasts in the mornings",
+          "confidence": 95
+        },
+        {
+          "category": "achievement",
+          "fact": "User achieved a personal record vertical jump of 28 inches last month",
+          "confidence": 98
+        },
+        {
+          "category": "goal",
+          "fact": "User wants to achieve a vertical jump of 33 inches",
+          "confidence": 95
+        },
+        {
+          "category": "goal",
+          "fact": "User's goal is to maintain fitness in the two weeks leading up to their tournament",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User has been sleeping poorly, getting only 5-6 hours of sleep per night",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User practices intermittent fasting",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User performs two workouts per day (two-a-days)",
+          "confidence": 95
+        }
+      ],
+      "missed_gt_facts": []
+    },
+    {
+      "user_id": "eval_sourabh",
+      "name": "Sourabh Sharma",
+      "ground_truth_count": 6,
+      "extracted_count": 23,
+      "matched": 2,
+      "precision": 0.087,
+      "recall": 0.3333,
+      "f1": 0.1379,
+      "category_accuracy": 1.0,
+      "extracted_facts": [
+        {
+          "category": "personal",
+          "fact": "User currently weighs 92kg",
+          "confidence": 98
+        },
+        {
+          "category": "goal",
+          "fact": "User wants to lose approximately 15kg",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User has patellofemoral syndrome in their right knee",
+          "confidence": 98
+        },
+        {
+          "category": "limitation",
+          "fact": "User experiences significant pain in their right knee during certain exercises",
+          "confidence": 95
+        },
+        {
+          "category": "personal",
+          "fact": "User works night shifts from 10 PM to 7 AM",
+          "confidence": 98
+        },
+        {
+          "category": "personal",
+          "fact": "User has a flipped sleep/wake schedule due to night shifts",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User does not have a gym membership",
+          "confidence": 95
+        },
+        {
+          "category": "preference",
+          "fact": "User prefers to work out at home",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User is lactose intolerant",
+          "confidence": 99
+        },
+        {
+          "category": "limitation",
+          "fact": "User cannot consume milk or whey protein",
+          "confidence": 99
+        },
+        {
+          "category": "achievement",
+          "fact": "User has lost approximately 5kg in the last 3 months",
+          "confidence": 98
+        },
+        {
+          "category": "habit",
+          "fact": "User has been cutting out junk food",
+          "confidence": 95
+        },
+        {
+          "category": "goal",
+          "fact": "User wants to add exercise to their routine",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User experiences knee issues during squats",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User experiences knee issues when going down stairs",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User's knee is fine with running, provided the duration is not too long",
+          "confidence": 90
+        },
+        {
+          "category": "habit",
+          "fact": "User usually sleeps from 8 AM to 3 PM",
+          "confidence": 90
+        },
+        {
+          "category": "preference",
+          "fact": "User is open to consuming dairy alternatives",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User experienced knee discomfort when performing bodyweight squats",
+          "confidence": 95
+        },
+        {
+          "category": "personal",
+          "fact": "User is a software engineer",
+          "confidence": 99
+        },
+        {
+          "category": "habit",
+          "fact": "User is sedentary during work hours",
+          "confidence": 90
+        },
+        {
+          "category": "personal",
+          "fact": "User works a night shift",
+          "confidence": 99
+        },
+        {
+          "category": "goal",
+          "fact": "User wants to lose 15kg in 6 months",
+          "confidence": 95
+        }
+      ],
+      "missed_gt_facts": [
+        {
+          "id": "gt_sourabh_002",
+          "category": "goal",
+          "fact": "User wants to lose 15 kg, currently weighing 92 kg"
+        },
+        {
+          "id": "gt_sourabh_003",
+          "category": "habit",
+          "fact": "User works night shifts from 10pm to 7am"
+        },
+        {
+          "id": "gt_sourabh_005",
+          "category": "personal",
+          "fact": "User is lactose intolerant"
+        },
+        {
+          "id": "gt_sourabh_006",
+          "category": "achievement",
+          "fact": "User has already lost 5 kg over the past 3 months"
+        }
+      ]
+    },
+    {
+      "user_id": "eval_subodh",
+      "name": "Subodh Kumar",
+      "ground_truth_count": 6,
+      "extracted_count": 31,
+      "matched": 3,
+      "precision": 0.0968,
+      "recall": 0.5,
+      "f1": 0.1622,
+      "category_accuracy": 1.0,
+      "extracted_facts": [
+        {
+          "category": "limitation",
+          "fact": "User has been experiencing lower back pain for approximately 2 years",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User has an L4-L5 disc bulge",
+          "confidence": 98
+        },
+        {
+          "category": "limitation",
+          "fact": "User's L4-L5 disc bulge is not surgical but affects their daily activities/fitness",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User's physiotherapist has advised against heavy overhead pressing",
+          "confidence": 98
+        },
+        {
+          "category": "limitation",
+          "fact": "User's physiotherapist has advised against heavy barbell squats",
+          "confidence": 98
+        },
+        {
+          "category": "limitation",
+          "fact": "User is currently advised to avoid exercises that vertically load the spine",
+          "confidence": 95
+        },
+        {
+          "category": "personal",
+          "fact": "User works as a project manager and sits at a desk for 9 hours a day",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User typically walks less than 3000 steps on most days",
+          "confidence": 85
+        },
+        {
+          "category": "goal",
+          "fact": "User wants to strengthen their core",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User believes their core weakness is a root cause of pain",
+          "confidence": 85
+        },
+        {
+          "category": "personal",
+          "fact": "User manages a team of 12",
+          "confidence": 99
+        },
+        {
+          "category": "emotion",
+          "fact": "User is experiencing high work-related stress",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User frequently skips workouts",
+          "confidence": 90
+        },
+        {
+          "category": "emotion",
+          "fact": "User feels completely drained by evening",
+          "confidence": 92
+        },
+        {
+          "category": "limitation",
+          "fact": "User has a back issue",
+          "confidence": 85
+        },
+        {
+          "category": "preference",
+          "fact": "User finds swimming beneficial for their back",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User tries to swim on weekends",
+          "confidence": 90
+        },
+        {
+          "category": "limitation",
+          "fact": "User is concerned about hurting their back during exercise",
+          "confidence": 90
+        },
+        {
+          "category": "limitation",
+          "fact": "User has poor posture",
+          "confidence": 95
+        },
+        {
+          "category": "personal",
+          "fact": "User's occupation involves desk work",
+          "confidence": 90
+        },
+        {
+          "category": "limitation",
+          "fact": "User has rounded shoulders",
+          "confidence": 95
+        },
+        {
+          "category": "limitation",
+          "fact": "User experiences chronic lower back pain in the afternoons",
+          "confidence": 95
+        },
+        {
+          "category": "personal",
+          "fact": "User has two kids",
+          "confidence": 99
+        },
+        {
+          "category": "limitation",
+          "fact": "User has limited time for exercise due to having kids",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User can realistically commit to 30-minute workout sessions",
+          "confidence": 90
+        },
+        {
+          "category": "habit",
+          "fact": "User can realistically commit to exercising 3-4 times per week",
+          "confidence": 90
+        },
+        {
+          "category": "limitation",
+          "fact": "User has back pain",
+          "confidence": 95
+        },
+        {
+          "category": "habit",
+          "fact": "User has started doing YouTube yoga videos for back pain",
+          "confidence": 90
+        },
+        {
+          "category": "limitation",
+          "fact": "User experiences back pain that worsens on days when they are stressed",
+          "confidence": 95
+        },
+        {
+          "category": "emotion",
+          "fact": "User has been struggling to achieve fitness goals for the past two years",
+          "confidence": 95
+        },
+        {
+          "category": "emotion",
+          "fact": "User is currently experiencing a lack of motivation for fitness",
+          "confidence": 95
+        }
+      ],
+      "missed_gt_facts": [
+        {
+          "id": "gt_subodh_004",
+          "category": "habit",
+          "fact": "User has a sedentary desk job lasting 9 hours a day and averages under 3000 steps daily"
+        },
+        {
+          "id": "gt_subodh_005",
+          "category": "preference",
+          "fact": "User prefers low-impact exercises and enjoys swimming when accessible"
+        },
+        {
+          "id": "gt_subodh_006",
+          "category": "emotion",
+          "fact": "User feels persistently demotivated and burnt out due to work stress consistently disrupting workout routine"
+        }
+      ]
+    }
+  ],
+  "category_breakdown": {
+    "limitation": {
+      "gt_count": 8,
+      "matched": 7,
+      "recall": 0.875
+    },
+    "goal": {
+      "gt_count": 7,
+      "matched": 4,
+      "recall": 0.5714
+    },
+    "emotion": {
+      "gt_count": 4,
+      "matched": 2,
+      "recall": 0.5
+    },
+    "preference": {
+      "gt_count": 6,
+      "matched": 3,
+      "recall": 0.5
+    },
+    "habit": {
+      "gt_count": 8,
+      "matched": 6,
+      "recall": 0.75
+    },
+    "personal": {
+      "gt_count": 3,
+      "matched": 1,
+      "recall": 0.3333
+    },
+    "achievement": {
+      "gt_count": 3,
+      "matched": 2,
+      "recall": 0.6667
+    },
+    "event": {
+      "gt_count": 3,
+      "matched": 2,
+      "recall": 0.6667
+    }
+  }
+}

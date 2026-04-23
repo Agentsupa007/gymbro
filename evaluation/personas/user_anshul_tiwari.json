@@ -1,0 +1,85 @@
+{
+  "user_id": "eval_anshul",
+  "profile": {
+    "full_name": "Anshul Tiwari",
+    "age": 23,
+    "gender": "male",
+    "height_cm": 172,
+    "weight_kg": 65,
+    "fitness_goal": "Improve running performance",
+    "activity_level": "active"
+  },
+  "ground_truth_facts": [
+    {
+      "id": "gt_anshul_001",
+      "category": "goal",
+      "fact": "User is training to complete a 10K run in under 55 minutes"
+    },
+    {
+      "id": "gt_anshul_002",
+      "category": "event",
+      "fact": "User has a 10K race scheduled in March"
+    },
+    {
+      "id": "gt_anshul_003",
+      "category": "limitation",
+      "fact": "User has recurring shin splints in the left leg"
+    },
+    {
+      "id": "gt_anshul_004",
+      "category": "preference",
+      "fact": "User prefers outdoor morning runs and dislikes running on treadmills"
+    },
+    {
+      "id": "gt_anshul_005",
+      "category": "habit",
+      "fact": "User follows a strict vegan diet and practices yoga three times a week"
+    },
+    {
+      "id": "gt_anshul_006",
+      "category": "emotion",
+      "fact": "User experiences persistent performance anxiety and nervousness before races and competitions"
+    }
+  ],
+  "conversation_messages": [
+    "I signed up for a 10K in March. My goal is to finish under 55 minutes. Currently running around 62-63 minutes so I need to shave off about 7-8 mins.",
+    "My biggest enemy right now is shin splints — left leg specifically. It flares up whenever I increase my mileage too fast.",
+    "I'm vegan so I need to be careful about protein sources. No meat, no eggs, no dairy. I eat a lot of lentils, tofu, and tempeh.",
+    "I love running outside in the morning — fresh air, cooler temperatures. I genuinely hate treadmills, they feel soul-crushing.",
+    "I do yoga 3 times a week for flexibility and recovery. It's been really helpful for tight hips.",
+    "Honestly, before every race or even a time trial I get really nervous. Like, uncomfortably anxious. My performance drops because I'm in my head too much.",
+    "The shin splints are back again. I ran 12km yesterday and my left shin is on fire today.",
+    "What should I eat the night before a long run? I need vegan options obviously.",
+    "I've been told to do speed work — intervals and tempo runs. But does that increase the risk of shin splints coming back?",
+    "How many weeks of training do I realistically need to hit my 55-minute goal for March?",
+    "I tried a treadmill session last week because it was raining. Felt awful, completely killed my motivation.",
+    "Is there a vegan protein powder that's actually good? I struggle to hit my protein targets.",
+    "The anxiety before races is getting worse. Sometimes I feel nauseous at the starting line. How do other runners deal with this?"
+  ],
+  "probe_queries": [
+    {
+      "query": "How should I structure my training for the upcoming race?",
+      "relevant_fact_ids": ["gt_anshul_001", "gt_anshul_002"]
+    },
+    {
+      "query": "My shins are hurting after my run today",
+      "relevant_fact_ids": ["gt_anshul_003"]
+    },
+    {
+      "query": "What are good pre-run foods for me?",
+      "relevant_fact_ids": ["gt_anshul_005"]
+    },
+    {
+      "query": "I feel really nervous and anxious before my time trials",
+      "relevant_fact_ids": ["gt_anshul_006"]
+    },
+    {
+      "query": "Should I run on the treadmill since it's raining outside?",
+      "relevant_fact_ids": ["gt_anshul_004"]
+    },
+    {
+      "query": "How do I avoid injury while increasing my training volume?",
+      "relevant_fact_ids": ["gt_anshul_003", "gt_anshul_001"]
+    }
+  ]
+}

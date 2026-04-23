@@ -1,0 +1,85 @@
+{
+  "user_id": "eval_abhinav",
+  "profile": {
+    "full_name": "Abhinav Bhardwaj",
+    "age": 21,
+    "gender": "male",
+    "height_cm": 173,
+    "weight_kg": 74,
+    "fitness_goal": "Build overall fitness and confidence",
+    "activity_level": "sedentary"
+  },
+  "ground_truth_facts": [
+    {
+      "id": "gt_abhinav_001",
+      "category": "limitation",
+      "fact": "User has mild asthma and carries an inhaler for exercise-induced symptoms"
+    },
+    {
+      "id": "gt_abhinav_002",
+      "category": "goal",
+      "fact": "User wants to build overall fitness, improve confidence, and reduce belly fat"
+    },
+    {
+      "id": "gt_abhinav_003",
+      "category": "emotion",
+      "fact": "User has persistent social anxiety about being judged and observed at the gym as a beginner"
+    },
+    {
+      "id": "gt_abhinav_004",
+      "category": "preference",
+      "fact": "User strongly prefers working out alone and wants to avoid crowded peak gym hours"
+    },
+    {
+      "id": "gt_abhinav_005",
+      "category": "habit",
+      "fact": "User is highly sedentary, spending 8-10 hours daily on computer for gaming and studies"
+    },
+    {
+      "id": "gt_abhinav_006",
+      "category": "personal",
+      "fact": "User is a complete beginner who has never followed a structured workout routine"
+    }
+  ],
+  "conversation_messages": [
+    "I've never really worked out in my life. Like zero structured exercise ever. I want to change that but I honestly don't know where to start.",
+    "I have mild asthma — it's mostly exercise-induced. I carry an inhaler but I've never really pushed myself physically so I don't know how it'll react.",
+    "My main goals are just to get fit, lose the belly fat, and feel more confident in general. Nothing extreme.",
+    "Honestly the biggest thing holding me back from the gym is that I feel like everyone there knows what they're doing except me. I get anxious just thinking about it.",
+    "I spend way too much time on my PC — gaming and studying. Probably 8-10 hours a day. My lifestyle is extremely sedentary.",
+    "Is working out at home a viable option? I don't think I'm ready to go to a gym where people can see me.",
+    "I tried going to the gym once with a friend and I was so conscious the entire time. Left after 20 minutes.",
+    "What cardio can I do that won't trigger my asthma? I tried running once and it was bad.",
+    "If I do go to the gym, when is it least crowded? I'd rather go when it's empty.",
+    "I don't have any equipment at home. Just a yoga mat. What can I realistically do?",
+    "How long before I start seeing some results? I need something to keep me motivated early on.",
+    "I've been reading about beginner programs. Starting Strength vs calisthenics — which makes more sense for someone who's never trained?",
+    "My confidence is really low. I feel like I'm already behind everyone else my age."
+  ],
+  "probe_queries": [
+    {
+      "query": "What cardio exercises can I do safely?",
+      "relevant_fact_ids": ["gt_abhinav_001"]
+    },
+    {
+      "query": "I feel embarrassed going to the gym, everyone there looks so experienced",
+      "relevant_fact_ids": ["gt_abhinav_003"]
+    },
+    {
+      "query": "When should I go to the gym to avoid crowds?",
+      "relevant_fact_ids": ["gt_abhinav_004"]
+    },
+    {
+      "query": "I sit at my computer all day, where do I even start with fitness?",
+      "relevant_fact_ids": ["gt_abhinav_005", "gt_abhinav_006"]
+    },
+    {
+      "query": "Can I get good results working out at home instead of the gym?",
+      "relevant_fact_ids": ["gt_abhinav_003", "gt_abhinav_004"]
+    },
+    {
+      "query": "Build me a beginner workout plan",
+      "relevant_fact_ids": ["gt_abhinav_006", "gt_abhinav_001", "gt_abhinav_002"]
+    }
+  ]
+}

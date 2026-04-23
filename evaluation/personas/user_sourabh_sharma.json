@@ -1,0 +1,85 @@
+{
+  "user_id": "eval_sourabh",
+  "profile": {
+    "full_name": "Sourabh Sharma",
+    "age": 26,
+    "gender": "male",
+    "height_cm": 175,
+    "weight_kg": 92,
+    "fitness_goal": "Weight loss",
+    "activity_level": "sedentary"
+  },
+  "ground_truth_facts": [
+    {
+      "id": "gt_sourabh_001",
+      "category": "limitation",
+      "fact": "User has patellofemoral syndrome in the right knee diagnosed by a doctor"
+    },
+    {
+      "id": "gt_sourabh_002",
+      "category": "goal",
+      "fact": "User wants to lose 15 kg, currently weighing 92 kg"
+    },
+    {
+      "id": "gt_sourabh_003",
+      "category": "habit",
+      "fact": "User works night shifts from 10pm to 7am"
+    },
+    {
+      "id": "gt_sourabh_004",
+      "category": "preference",
+      "fact": "User prefers home workouts over going to the gym"
+    },
+    {
+      "id": "gt_sourabh_005",
+      "category": "personal",
+      "fact": "User is lactose intolerant"
+    },
+    {
+      "id": "gt_sourabh_006",
+      "category": "achievement",
+      "fact": "User has already lost 5 kg over the past 3 months"
+    }
+  ],
+  "conversation_messages": [
+    "Hey, I want to start getting serious about fitness. I'm 92kg right now and I really want to lose around 15kg. Where do I even start?",
+    "The main issue is my right knee. Doctor told me last year it's patellofemoral syndrome. Some exercises just kill it.",
+    "I work night shifts — 10pm to 7am — so my schedule is completely flipped. How do I plan workouts around that?",
+    "I don't have a gym membership and honestly don't want one. I'd rather just work out at home if possible.",
+    "What kind of diet changes should I make? Also I should mention I'm lactose intolerant so anything with milk or whey protein is out for me.",
+    "I've actually been doing okay — lost about 5kg in the last 3 months just by cutting out junk food. But now I feel like I need to add exercise.",
+    "My knee acts up mostly during squats and going down stairs. Running is fine as long as it's not too long.",
+    "What's the best time for me to work out given my shift? I usually sleep from 8am to 3pm.",
+    "Can you suggest a fat loss diet that works for someone lactose intolerant? Dairy alternatives are fine.",
+    "I tried doing bodyweight squats yesterday and my knee was not happy. Are there alternatives that don't stress the knee as much?",
+    "How many calories should I be eating to lose weight? I'm a software engineer so pretty sedentary during work hours even though it's night shift.",
+    "I want to track my progress properly. Should I focus on scale weight or measurements?",
+    "Is 15kg weight loss achievable in 6 months or am I being unrealistic?"
+  ],
+  "probe_queries": [
+    {
+      "query": "Can I do squats and lunges in my workout?",
+      "relevant_fact_ids": ["gt_sourabh_001"]
+    },
+    {
+      "query": "What protein shake can I have after my workout?",
+      "relevant_fact_ids": ["gt_sourabh_005"]
+    },
+    {
+      "query": "I work nights, when is the best time for me to train?",
+      "relevant_fact_ids": ["gt_sourabh_003"]
+    },
+    {
+      "query": "How far am I from my goal?",
+      "relevant_fact_ids": ["gt_sourabh_002", "gt_sourabh_006"]
+    },
+    {
+      "query": "Give me a home workout plan for fat loss",
+      "relevant_fact_ids": ["gt_sourabh_004", "gt_sourabh_002"]
+    },
+    {
+      "query": "My knee is hurting after yesterday's session, what should I do?",
+      "relevant_fact_ids": ["gt_sourabh_001"]
+    }
+  ]
+}

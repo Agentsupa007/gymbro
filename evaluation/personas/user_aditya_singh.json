@@ -1,0 +1,85 @@
+{
+  "user_id": "eval_aditya",
+  "profile": {
+    "full_name": "Aditya Singh",
+    "age": 28,
+    "gender": "male",
+    "height_cm": 176,
+    "weight_kg": 80,
+    "fitness_goal": "Body recomposition",
+    "activity_level": "lightly_active"
+  },
+  "ground_truth_facts": [
+    {
+      "id": "gt_aditya_001",
+      "category": "goal",
+      "fact": "User wants to achieve body recomposition — lose fat while gaining muscle simultaneously"
+    },
+    {
+      "id": "gt_aditya_002",
+      "category": "personal",
+      "fact": "User currently has approximately 22% body fat"
+    },
+    {
+      "id": "gt_aditya_003",
+      "category": "limitation",
+      "fact": "User has a severe nut allergy and must avoid all nut-based products"
+    },
+    {
+      "id": "gt_aditya_004",
+      "category": "habit",
+      "fact": "User consistently gets only 5-6 hours of sleep per night due to late work hours"
+    },
+    {
+      "id": "gt_aditya_005",
+      "category": "habit",
+      "fact": "User has had a highly inconsistent gym history over 2 years with frequent extended breaks"
+    },
+    {
+      "id": "gt_aditya_006",
+      "category": "achievement",
+      "fact": "User recently completed their first full month of consistent training without missing a session"
+    }
+  ],
+  "conversation_messages": [
+    "I want to do a body recomp — lose fat but also gain muscle at the same time. I'm at about 22% body fat right now. Is that realistic for me?",
+    "I work in IT and I'm usually up till 1-2am for project deadlines. I end up getting maybe 5-6 hours of sleep most nights.",
+    "I'm severely allergic to nuts — like carry an EpiPen level. So anything with peanuts, almonds, cashews is completely off the table for me.",
+    "My gym history is embarrassing. Been 'trying' for 2 years but I'd go for 3 weeks then take a 2 month break. Repeat.",
+    "But this past month I actually didn't miss a single session. 4 days a week, every week. First time in 2 years I've been consistent.",
+    "Does bad sleep actually kill muscle gains? I keep reading different things — some say it's fine, some say it's the most important factor.",
+    "What protein supplements can I take that don't have nuts? Most pre-workouts seem to have things I can't have.",
+    "I think my inconsistency before was because I was doing too much too soon. Going 6 days a week with no plan.",
+    "How do I know if my body fat is dropping? I don't own a scale that measures it.",
+    "Is body recomp slower than a regular cut? I feel like I've been doing everything right but the mirror hasn't changed much.",
+    "I'm scared of going back to my old habits. How do I make sure this time sticks?",
+    "What split works best for recomp? I'm currently doing upper-lower 4 days a week.",
+    "Should I be in a caloric deficit or maintenance for recomp at 22% body fat?"
+  ],
+  "probe_queries": [
+    {
+      "query": "What protein powder or pre-workout can I take?",
+      "relevant_fact_ids": ["gt_aditya_003"]
+    },
+    {
+      "query": "I only sleep 5-6 hours, is that going to stop me from seeing results?",
+      "relevant_fact_ids": ["gt_aditya_004"]
+    },
+    {
+      "query": "Is body recomposition realistic for someone at my body fat level?",
+      "relevant_fact_ids": ["gt_aditya_001", "gt_aditya_002"]
+    },
+    {
+      "query": "How do I stay consistent this time and not fall off again?",
+      "relevant_fact_ids": ["gt_aditya_005", "gt_aditya_006"]
+    },
+    {
+      "query": "Should I cut or bulk or recomp?",
+      "relevant_fact_ids": ["gt_aditya_001", "gt_aditya_002"]
+    },
+    {
+      "query": "I just hit a full month of not missing any sessions!",
+      "relevant_fact_ids": ["gt_aditya_006", "gt_aditya_005"]
+    }
+  ]
+}

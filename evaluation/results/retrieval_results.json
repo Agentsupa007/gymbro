@@ -1,0 +1,1131 @@
+{
+  "summary": {
+    "macro_precision_at_5": 0.1714,
+    "macro_recall_at_5": 0.4921,
+    "macro_mrr": 0.45
+  },
+  "per_user": [
+    {
+      "user_id": "eval_abhinav",
+      "name": "Abhinav Bhardwaj",
+      "n_queries": 6,
+      "avg_precision_at_5": 0.1333,
+      "avg_recall_at_5": 0.4722,
+      "avg_mrr": 0.5417,
+      "queries": [
+        {
+          "query": "What cardio exercises can I do safely?",
+          "relevant_fact_ids": [
+            "gt_abhinav_001"
+          ],
+          "retrieved_texts": [
+            "User has not yet tested their physical limits due to asthma",
+            "User does not have workout equipment at home",
+            "User wants to start a structured exercise routine",
+            "User has asthma",
+            "User describes their lifestyle as extremely sedentary"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 1.0,
+          "mrr": 0.25,
+          "hits": [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "I feel embarrassed going to the gym, everyone there looks so experienced",
+          "relevant_fact_ids": [
+            "gt_abhinav_003"
+          ],
+          "retrieved_texts": [
+            "User experiences anxiety about going to the gym due to feeling inadequate compared to others",
+            "User felt self-conscious and uncomfortable during a gym visit",
+            "User is uncomfortable working out in a gym where others can see them",
+            "User has low confidence regarding their fitness progress compared to peers",
+            "User had a negative experience at the gym, leaving after 20 minutes"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "When should I go to the gym to avoid crowds?",
+          "relevant_fact_ids": [
+            "gt_abhinav_004"
+          ],
+          "retrieved_texts": [
+            "User prefers to go to the gym when it is least crowded",
+            "User is uncomfortable working out in a gym where others can see them",
+            "User felt self-conscious and uncomfortable during a gym visit",
+            "User had a negative experience at the gym, leaving after 20 minutes",
+            "User experiences anxiety about going to the gym due to feeling inadequate compared to others"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "I sit at my computer all day, where do I even start with fitness?",
+          "relevant_fact_ids": [
+            "gt_abhinav_005",
+            "gt_abhinav_006"
+          ],
+          "retrieved_texts": [
+            "User wants to start a structured exercise routine",
+            "User describes their lifestyle as extremely sedentary",
+            "User does not have workout equipment at home",
+            "User's main goal is to lose belly fat",
+            "User prefers a non-extreme approach to fitness goals"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.5,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "Can I get good results working out at home instead of the gym?",
+          "relevant_fact_ids": [
+            "gt_abhinav_003",
+            "gt_abhinav_004"
+          ],
+          "retrieved_texts": [
+            "User does not have workout equipment at home",
+            "User is uncomfortable working out in a gym where others can see them",
+            "User has a yoga mat available for home workouts",
+            "User wants to start a structured exercise routine",
+            "User needs external motivation, especially in the early stages of their fitness journey"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "Build me a beginner workout plan",
+          "relevant_fact_ids": [
+            "gt_abhinav_006",
+            "gt_abhinav_001",
+            "gt_abhinav_002"
+          ],
+          "retrieved_texts": [
+            "User wants to start a structured exercise routine",
+            "User's main goal is to lose belly fat",
+            "User does not have workout equipment at home",
+            "User prefers a non-extreme approach to fitness goals",
+            "User has no prior training experience"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.3333,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 1
+        }
+      ]
+    },
+    {
+      "user_id": "eval_aditya",
+      "name": "Aditya Singh",
+      "n_queries": 6,
+      "avg_precision_at_5": 0.2333,
+      "avg_recall_at_5": 0.6667,
+      "avg_mrr": 0.575,
+      "queries": [
+        {
+          "query": "What protein powder or pre-workout can I take?",
+          "relevant_fact_ids": [
+            "gt_aditya_003"
+          ],
+          "retrieved_texts": [
+            "User is currently following an upper-lower workout split 4 days a week",
+            "User's goal is body recomposition, aiming to lose fat and gain muscle simultaneously",
+            "User does not own a scale that measures body fat",
+            "User cannot consume nuts",
+            "User's current body fat percentage is approximately 22%"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "I only sleep 5-6 hours, is that going to stop me from seeing results?",
+          "relevant_fact_ids": [
+            "gt_aditya_004"
+          ],
+          "retrieved_texts": [
+            "User typically gets 5-6 hours of sleep per night",
+            "User previously trained 6 days a week without a structured plan",
+            "User regularly stays up until 1-2 AM due to project deadlines",
+            "User is frustrated with the lack of visible progress from their body recomposition efforts",
+            "User does not own a scale that measures body fat"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "Is body recomposition realistic for someone at my body fat level?",
+          "relevant_fact_ids": [
+            "gt_aditya_001",
+            "gt_aditya_002"
+          ],
+          "retrieved_texts": [
+            "User's goal is body recomposition, aiming to lose fat and gain muscle simultaneously",
+            "User is frustrated with the lack of visible progress from their body recomposition efforts",
+            "User's current body fat percentage is approximately 22%",
+            "User does not own a scale that measures body fat",
+            "User is currently following an upper-lower workout split 4 days a week"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            true,
+            false,
+            false
+          ],
+          "n_hits": 2
+        },
+        {
+          "query": "How do I stay consistent this time and not fall off again?",
+          "relevant_fact_ids": [
+            "gt_aditya_005",
+            "gt_aditya_006"
+          ],
+          "retrieved_texts": [
+            "User's past inconsistency in training was due to starting with too much intensity too soon",
+            "User is afraid of reverting to old habits",
+            "User has achieved consistent workout attendance for the first time in two years",
+            "User has a history of inconsistent gym attendance over the past two years, characterized by short periods of training followed by long breaks",
+            "User consistently worked out 4 days a week for the past month"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.5,
+          "mrr": 0.25,
+          "hits": [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "Should I cut or bulk or recomp?",
+          "relevant_fact_ids": [
+            "gt_aditya_001",
+            "gt_aditya_002"
+          ],
+          "retrieved_texts": [
+            "User's goal is body recomposition, aiming to lose fat and gain muscle simultaneously",
+            "User is frustrated with the lack of visible progress from their body recomposition efforts",
+            "User's current body fat percentage is approximately 22%",
+            "User does not own a scale that measures body fat",
+            "User is currently following an upper-lower workout split 4 days a week"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            true,
+            false,
+            false
+          ],
+          "n_hits": 2
+        },
+        {
+          "query": "I just hit a full month of not missing any sessions!",
+          "relevant_fact_ids": [
+            "gt_aditya_006",
+            "gt_aditya_005"
+          ],
+          "retrieved_texts": [
+            "User did not miss a single workout session in the past month",
+            "User has achieved consistent workout attendance for the first time in two years",
+            "User consistently worked out 4 days a week for the past month",
+            "User's past inconsistency in training was due to starting with too much intensity too soon",
+            "User has a history of inconsistent gym attendance over the past two years, characterized by short periods of training followed by long breaks"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.5,
+          "mrr": 0.2,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            true
+          ],
+          "n_hits": 1
+        }
+      ]
+    },
+    {
+      "user_id": "eval_anshul",
+      "name": "Anshul Tiwari",
+      "n_queries": 6,
+      "avg_precision_at_5": 0.3,
+      "avg_recall_at_5": 0.75,
+      "avg_mrr": 0.75,
+      "queries": [
+        {
+          "query": "How should I structure my training for the upcoming race?",
+          "relevant_fact_ids": [
+            "gt_anshul_001",
+            "gt_anshul_002"
+          ],
+          "retrieved_texts": [
+            "User has a 10K race scheduled in March",
+            "User has a goal to achieve a 55-minute time by March",
+            "User's current 10K running time is approximately 62-63 minutes",
+            "User's goal is to finish the 10K under 55 minutes",
+            "User sometimes feels nauseous at the starting line of races"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            false,
+            true,
+            false
+          ],
+          "n_hits": 2
+        },
+        {
+          "query": "My shins are hurting after my run today",
+          "relevant_fact_ids": [
+            "gt_anshul_003"
+          ],
+          "retrieved_texts": [
+            "User has shin splints in their left leg",
+            "User's shin splints flare up when mileage is increased too fast",
+            "User experiences recurring shin splints",
+            "User's current 10K running time is approximately 62-63 minutes",
+            "User's goal is to finish the 10K under 55 minutes"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            true,
+            false,
+            false
+          ],
+          "n_hits": 2
+        },
+        {
+          "query": "What are good pre-run foods for me?",
+          "relevant_fact_ids": [
+            "gt_anshul_005"
+          ],
+          "retrieved_texts": [
+            "User prefers running in the morning",
+            "User sometimes feels nauseous at the starting line of races",
+            "User's current 10K running time is approximately 62-63 minutes",
+            "User loves running outside",
+            "User has a 10K race scheduled in March"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "I feel really nervous and anxious before my time trials",
+          "relevant_fact_ids": [
+            "gt_anshul_006"
+          ],
+          "retrieved_texts": [
+            "User experiences significant nervousness and anxiety before races or time trials",
+            "User sometimes feels nauseous at the starting line of races",
+            "User has a goal to achieve a 55-minute time by March",
+            "User's goal is to finish the 10K under 55 minutes",
+            "User's current 10K running time is approximately 62-63 minutes"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "Should I run on the treadmill since it's raining outside?",
+          "relevant_fact_ids": [
+            "gt_anshul_004"
+          ],
+          "retrieved_texts": [
+            "User prefers running in the morning",
+            "User dislikes treadmills",
+            "User's current 10K running time is approximately 62-63 minutes",
+            "User loves running outside",
+            "User's goal is to finish the 10K under 55 minutes"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 2
+        },
+        {
+          "query": "How do I avoid injury while increasing my training volume?",
+          "relevant_fact_ids": [
+            "gt_anshul_003",
+            "gt_anshul_001"
+          ],
+          "retrieved_texts": [
+            "User's shin splints flare up when mileage is increased too fast",
+            "User experiences recurring shin splints",
+            "User does yoga for flexibility and recovery",
+            "User has shin splints in their left leg",
+            "User experiences significant nervousness and anxiety before races or time trials"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.5,
+          "mrr": 0.5,
+          "hits": [
+            false,
+            true,
+            false,
+            true,
+            false
+          ],
+          "n_hits": 2
+        }
+      ]
+    },
+    {
+      "user_id": "eval_ronak",
+      "name": "Ronak Patwa",
+      "n_queries": 6,
+      "avg_precision_at_5": 0.2,
+      "avg_recall_at_5": 0.4167,
+      "avg_mrr": 0.5,
+      "queries": [
+        {
+          "query": "How do I get to a 100kg bench press?",
+          "relevant_fact_ids": [
+            "gt_ronak_001"
+          ],
+          "retrieved_texts": [
+            "User's goal is to bench press 100kg",
+            "User's current bench press is 75kg",
+            "User identifies their triceps as a weak link in their bench press",
+            "User currently consumes 100-120g of protein per day",
+            "User has been lifting weights for approximately 8 months"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "My lower back is sore after deadlifts again",
+          "relevant_fact_ids": [
+            "gt_ronak_002"
+          ],
+          "retrieved_texts": [
+            "User's lower back consistently gets tight and stiff for a day or two after heavy deadlifts",
+            "User tends to round their lower back when performing heavy deadlifts",
+            "User experiences tightness, which they suspect is related to their deadlift form",
+            "User's current bench press is 75kg",
+            "User's goal is to bench press 100kg"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 2
+        },
+        {
+          "query": "Is it bad to skip breakfast when trying to build muscle?",
+          "relevant_fact_ids": [
+            "gt_ronak_004"
+          ],
+          "retrieved_texts": [
+            "User skips breakfast",
+            "User is not hungry in the morning",
+            "User trains completely fasted",
+            "User never eats breakfast",
+            "User wants to minimize muscle loss when they miss gym sessions"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            true,
+            false,
+            false
+          ],
+          "n_hits": 2
+        },
+        {
+          "query": "What time should I schedule my workouts?",
+          "relevant_fact_ids": [
+            "gt_ronak_003"
+          ],
+          "retrieved_texts": [
+            "User's college schedule dictates their evening training time",
+            "User trains in the evening, usually between 6 PM and 8 PM",
+            "User has an upcoming exam season that may impact their training schedule",
+            "User trains 5 days a week",
+            "User wants to minimize muscle loss when they miss gym sessions"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "I've been stressed about exams, how does that affect my training?",
+          "relevant_fact_ids": [
+            "gt_ronak_005"
+          ],
+          "retrieved_texts": [
+            "User is currently under significant academic pressure that is impacting their training",
+            "User has an upcoming exam season that may impact their training schedule",
+            "User is experiencing stress related to upcoming 'Placements'",
+            "User's college schedule dictates their evening training time",
+            "User has placement preparation ongoing, which impacts their ability to attend the gym regularly"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "Should I change my training split right now?",
+          "relevant_fact_ids": [
+            "gt_ronak_006",
+            "gt_ronak_005"
+          ],
+          "retrieved_texts": [
+            "User finds the PPL training split effective for them",
+            "User follows a Push Pull Legs (PPL) training split",
+            "User's college schedule dictates their evening training time",
+            "User has an upcoming exam season that may impact their training schedule",
+            "User trains 5 days a week"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.5,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 2
+        }
+      ]
+    },
+    {
+      "user_id": "eval_siddhant",
+      "name": "Siddhant Arya",
+      "n_queries": 6,
+      "avg_precision_at_5": 0.2,
+      "avg_recall_at_5": 0.5833,
+      "avg_mrr": 0.375,
+      "queries": [
+        {
+          "query": "How do I protect my ankle during intense training?",
+          "relevant_fact_ids": [
+            "gt_siddhant_003"
+          ],
+          "retrieved_texts": [
+            "User's right ankle sprains are triggered by heavy plyometric load",
+            "User finds their current training volume to be high or intense",
+            "User is experiencing physical strain or fatigue from training",
+            "User is currently doing two-a-day workouts",
+            "User's goal is to maintain fitness in the two weeks before their tournament"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "Is intermittent fasting good when I'm training twice a day?",
+          "relevant_fact_ids": [
+            "gt_siddhant_004",
+            "gt_siddhant_002"
+          ],
+          "retrieved_texts": [
+            "User performs two workouts per day (two-a-days)",
+            "User is currently doing two-a-day workouts",
+            "User finds intermittent fasting effective for body composition",
+            "User practices 16:8 intermittent fasting",
+            "User has been practicing intermittent fasting for approximately one year"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.5,
+          "mrr": 0.25,
+          "hits": [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "I feel exhausted all the time, am I overtraining?",
+          "relevant_fact_ids": [
+            "gt_siddhant_005",
+            "gt_siddhant_004"
+          ],
+          "retrieved_texts": [
+            "User is experiencing physical strain or fatigue from training",
+            "User finds their current training volume to be high or intense",
+            "User has been feeling drained for the last two weeks",
+            "User is currently doing two-a-day workouts",
+            "User's goal is to maintain fitness in the two weeks before their tournament"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.5,
+          "mrr": 0.3333,
+          "hits": [
+            false,
+            false,
+            true,
+            false,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "What plyometric exercises should I do to jump higher?",
+          "relevant_fact_ids": [
+            "gt_siddhant_001"
+          ],
+          "retrieved_texts": [
+            "User's goal is to achieve a 33-inch vertical jump",
+            "User's right ankle sprains are triggered by heavy plyometric load",
+            "User achieved a personal record of 28 inches for their vertical jump last month",
+            "User aims to peak their performance for the upcoming state basketball tournament",
+            "User is currently doing two-a-day workouts"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 1.0,
+          "mrr": 0.3333,
+          "hits": [
+            false,
+            false,
+            true,
+            false,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "How should I taper my training before the tournament?",
+          "relevant_fact_ids": [
+            "gt_siddhant_002",
+            "gt_siddhant_005"
+          ],
+          "retrieved_texts": [
+            "User's goal is to maintain fitness in the two weeks before their tournament",
+            "User aims to peak their performance for the upcoming state basketball tournament",
+            "User has an upcoming tournament",
+            "User finds their current training volume to be high or intense",
+            "User has a state basketball tournament in 6 weeks"
+          ],
+          "precision_at_k": 0.4,
+          "recall_at_k": 0.5,
+          "mrr": 0.3333,
+          "hits": [
+            false,
+            false,
+            true,
+            false,
+            true
+          ],
+          "n_hits": 2
+        },
+        {
+          "query": "Should I train hard today or take a rest day?",
+          "relevant_fact_ids": [
+            "gt_siddhant_005",
+            "gt_siddhant_003"
+          ],
+          "retrieved_texts": [
+            "User is experiencing physical strain or fatigue from training",
+            "User finds their current training volume to be high or intense",
+            "User is currently doing two-a-day workouts",
+            "User performs two workouts per day (two-a-days)",
+            "User's goal is to maintain fitness in the two weeks before their tournament"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        }
+      ]
+    },
+    {
+      "user_id": "eval_sourabh",
+      "name": "Sourabh Sharma",
+      "n_queries": 6,
+      "avg_precision_at_5": 0.1,
+      "avg_recall_at_5": 0.5,
+      "avg_mrr": 0.2417,
+      "queries": [
+        {
+          "query": "Can I do squats and lunges in my workout?",
+          "relevant_fact_ids": [
+            "gt_sourabh_001"
+          ],
+          "retrieved_texts": [
+            "User's knee experienced discomfort during bodyweight squats",
+            "User's knee has issues with longer running durations",
+            "User feels the need to add exercise to their routine",
+            "User prefers to work out at home",
+            "User's job involves sedentary work hours"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "What protein shake can I have after my workout?",
+          "relevant_fact_ids": [
+            "gt_sourabh_005"
+          ],
+          "retrieved_texts": [
+            "User cannot consume milk or whey protein",
+            "User prefers to work out at home",
+            "User is open to consuming dairy alternatives",
+            "User is lactose intolerant",
+            "User feels the need to add exercise to their routine"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 1.0,
+          "mrr": 0.25,
+          "hits": [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "I work nights, when is the best time for me to train?",
+          "relevant_fact_ids": [
+            "gt_sourabh_003"
+          ],
+          "retrieved_texts": [
+            "User works night shifts from 10 PM to 7 AM",
+            "User has a flipped schedule due to night shifts",
+            "User usually sleeps from 8 AM to 3 PM",
+            "User prefers to work out at home",
+            "User's job involves sedentary work hours"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 1
+        },
+        {
+          "query": "How far am I from my goal?",
+          "relevant_fact_ids": [
+            "gt_sourabh_002",
+            "gt_sourabh_006"
+          ],
+          "retrieved_texts": [
+            "User currently weighs 92kg",
+            "User's goal is to lose 15kg in 6 months",
+            "User has lost approximately 5kg in the last 3 months",
+            "User feels the need to add exercise to their routine",
+            "User prefers to work out at home"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "Give me a home workout plan for fat loss",
+          "relevant_fact_ids": [
+            "gt_sourabh_004",
+            "gt_sourabh_002"
+          ],
+          "retrieved_texts": [
+            "User prefers to work out at home",
+            "User's goal is to lose 15kg in 6 months",
+            "User achieved weight loss by cutting out junk food",
+            "User has lost approximately 5kg in the last 3 months",
+            "User currently weighs 92kg"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "My knee is hurting after yesterday's session, what should I do?",
+          "relevant_fact_ids": [
+            "gt_sourabh_001"
+          ],
+          "retrieved_texts": [
+            "User experiences significant pain in their right knee during certain exercises",
+            "User's knee experienced discomfort during bodyweight squats",
+            "User's knee has issues with longer running durations",
+            "User's knee acts up when going down stairs",
+            "User has patellofemoral syndrome in their right knee"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 1.0,
+          "mrr": 0.2,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            true
+          ],
+          "n_hits": 1
+        }
+      ]
+    },
+    {
+      "user_id": "eval_subodh",
+      "name": "Subodh Kumar",
+      "n_queries": 6,
+      "avg_precision_at_5": 0.0333,
+      "avg_recall_at_5": 0.0555,
+      "avg_mrr": 0.1667,
+      "queries": [
+        {
+          "query": "Can I do overhead press or military press?",
+          "relevant_fact_ids": [
+            "gt_subodh_002"
+          ],
+          "retrieved_texts": [
+            "User's physiotherapist has prohibited heavy overhead pressing",
+            "User's physiotherapist has prohibited exercises that load the spine vertically for now",
+            "User's physiotherapist has prohibited heavy barbell squats",
+            "User is concerned about hurting their back during exercise",
+            "User has rounded shoulders"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "What exercises will help with my back pain?",
+          "relevant_fact_ids": [
+            "gt_subodh_001",
+            "gt_subodh_003"
+          ],
+          "retrieved_texts": [
+            "User is concerned about hurting their back during exercise",
+            "User is doing YouTube yoga videos to address back pain",
+            "User's physiotherapist has prohibited exercises that load the spine vertically for now",
+            "User finds swimming beneficial for their back",
+            "User experiences back pain that worsens on days when they are stressed"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "I sit all day at work, what can I do during office hours?",
+          "relevant_fact_ids": [
+            "gt_subodh_004"
+          ],
+          "retrieved_texts": [
+            "User works as a project manager and sits at a desk for 9 hours a day",
+            "User's occupation involves significant desk work",
+            "User has poor posture",
+            "User has limited time for exercise",
+            "User experiences chronic lower back pain, typically by the afternoon"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "I just can't find motivation to work out these days",
+          "relevant_fact_ids": [
+            "gt_subodh_006"
+          ],
+          "retrieved_texts": [
+            "User is currently experiencing a lack of motivation for fitness",
+            "User frequently skips workouts",
+            "User has been struggling to achieve fitness goals for two years",
+            "User experiences persistent evening fatigue, which impacts their ability to work out",
+            "User typically walks less than 3000 steps on most days"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "Is swimming a good option for someone like me?",
+          "relevant_fact_ids": [
+            "gt_subodh_005",
+            "gt_subodh_001"
+          ],
+          "retrieved_texts": [
+            "User finds swimming beneficial for their back",
+            "User tries to go swimming on weekends",
+            "User has limited time for exercise",
+            "User is concerned about hurting their back during exercise",
+            "User typically walks less than 3000 steps on most days"
+          ],
+          "precision_at_k": 0.0,
+          "recall_at_k": 0.0,
+          "mrr": 0.0,
+          "hits": [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 0
+        },
+        {
+          "query": "Build me a core strengthening routine",
+          "relevant_fact_ids": [
+            "gt_subodh_003",
+            "gt_subodh_001",
+            "gt_subodh_002"
+          ],
+          "retrieved_texts": [
+            "User wants to strengthen their core",
+            "User believes a weak core is the root cause of their pain",
+            "User's physiotherapist has prohibited exercises that load the spine vertically for now",
+            "User has limited time for exercise",
+            "User can realistically commit to 30-minute workouts 3-4 times a week"
+          ],
+          "precision_at_k": 0.2,
+          "recall_at_k": 0.3333,
+          "mrr": 1.0,
+          "hits": [
+            true,
+            false,
+            false,
+            false,
+            false
+          ],
+          "n_hits": 1
+        }
+      ]
+    }
+  ],
+  "recency_bias_test": {
+    "passed": true,
+    "retrieved": [
+      {
+        "fact_id": "recency_test_new",
+        "fact_text": "User has chronic lower back pain from a disc bulge",
+        "category": "limitation",
+        "confidence": 90,
+        "similarity": 0.7223,
+        "recency_score": 1.0,
+        "combined_score": 0.8056
+      },
+      {
+        "fact_id": "recency_test_old",
+        "fact_text": "User has chronic lower back pain from a disc bulge",
+        "category": "limitation",
+        "confidence": 90,
+        "similarity": 0.7223,
+        "recency_score": 0.125,
+        "combined_score": 0.5431
+      }
+    ]
+  }
+}

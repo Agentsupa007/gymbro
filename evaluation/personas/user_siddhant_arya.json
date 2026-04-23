@@ -1,0 +1,85 @@
+{
+  "user_id": "eval_siddhant",
+  "profile": {
+    "full_name": "Siddhant Arya",
+    "age": 24,
+    "gender": "male",
+    "height_cm": 182,
+    "weight_kg": 78,
+    "fitness_goal": "Athletic performance for basketball",
+    "activity_level": "very_active"
+  },
+  "ground_truth_facts": [
+    {
+      "id": "gt_siddhant_001",
+      "category": "goal",
+      "fact": "User wants to increase vertical jump by 5 inches for basketball performance"
+    },
+    {
+      "id": "gt_siddhant_002",
+      "category": "event",
+      "fact": "User has a state-level basketball tournament in approximately 6 weeks"
+    },
+    {
+      "id": "gt_siddhant_003",
+      "category": "limitation",
+      "fact": "User has a recurring mild right ankle sprain that flares up under heavy load"
+    },
+    {
+      "id": "gt_siddhant_004",
+      "category": "habit",
+      "fact": "User follows intermittent fasting 16:8 and trains twice daily during tournament preparation"
+    },
+    {
+      "id": "gt_siddhant_005",
+      "category": "emotion",
+      "fact": "User has been feeling burnt out and signs of overtraining for the past two weeks"
+    },
+    {
+      "id": "gt_siddhant_006",
+      "category": "achievement",
+      "fact": "User was selected for the state basketball team for the first time this season"
+    }
+  ],
+  "conversation_messages": [
+    "Just got selected for the state basketball team — first time ever. Tournament is in 6 weeks. I need to peak at the right time.",
+    "My main goal physically is to add 5 inches to my vertical. My current standing jump is pretty average for my position.",
+    "I do intermittent fasting — 16:8 — have been for about a year. Works well for body composition.",
+    "Right now I'm doing two-a-days. Morning is skill work and conditioning, evening is weights. It's a lot.",
+    "My right ankle has this annoying history — it keeps spraining. It's mild each time but it keeps coming back, especially under heavy plyometric load.",
+    "Honestly I've been feeling really drained the last 2 weeks. Every session feels harder than it should. I dread waking up for morning practice.",
+    "My coach wants me to keep pushing because the tournament is close, but my body is telling me something different.",
+    "Is it okay to do heavy plyometrics on an empty stomach since I fast in the mornings?",
+    "I hit a new vertical jump PR last month before the fatigue kicked in. Jumped 28 inches. Want to get to 33.",
+    "My ankle swelled up slightly after yesterday's sprint drills. Should I be worried?",
+    "How do I manage training load in the last 2 weeks before the tournament without losing fitness?",
+    "I've been sleeping poorly too — maybe 5-6 hours. Is that making the fatigue worse?",
+    "What foods should I focus on during the eating window if I'm doing two-a-days on intermittent fasting?"
+  ],
+  "probe_queries": [
+    {
+      "query": "How do I protect my ankle during intense training?",
+      "relevant_fact_ids": ["gt_siddhant_003"]
+    },
+    {
+      "query": "Is intermittent fasting good when I'm training twice a day?",
+      "relevant_fact_ids": ["gt_siddhant_004", "gt_siddhant_002"]
+    },
+    {
+      "query": "I feel exhausted all the time, am I overtraining?",
+      "relevant_fact_ids": ["gt_siddhant_005", "gt_siddhant_004"]
+    },
+    {
+      "query": "What plyometric exercises should I do to jump higher?",
+      "relevant_fact_ids": ["gt_siddhant_001"]
+    },
+    {
+      "query": "How should I taper my training before the tournament?",
+      "relevant_fact_ids": ["gt_siddhant_002", "gt_siddhant_005"]
+    },
+    {
+      "query": "Should I train hard today or take a rest day?",
+      "relevant_fact_ids": ["gt_siddhant_005", "gt_siddhant_003"]
+    }
+  ]
+}

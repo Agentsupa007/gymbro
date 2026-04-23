@@ -7,7 +7,7 @@ from app.prompts.system_prompt import build_system_prompt
 
 client = genai.Client(api_key=settings.GEMINI_API_KEY)
 
-MODEL_NAME = "gemini-2.0-flash"
+MODEL_NAME = "gemini-2.5-flash"
 
 
 def _build_contents(

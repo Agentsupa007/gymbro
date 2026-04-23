@@ -1,0 +1,85 @@
+{
+  "user_id": "eval_subodh",
+  "profile": {
+    "full_name": "Subodh Kumar",
+    "age": 34,
+    "gender": "male",
+    "height_cm": 170,
+    "weight_kg": 82,
+    "fitness_goal": "Improve core strength and reduce back pain",
+    "activity_level": "sedentary"
+  },
+  "ground_truth_facts": [
+    {
+      "id": "gt_subodh_001",
+      "category": "limitation",
+      "fact": "User has a chronic L4-L5 disc bulge causing lower back pain"
+    },
+    {
+      "id": "gt_subodh_002",
+      "category": "limitation",
+      "fact": "User cannot perform heavy overhead lifts or heavy barbell exercises due to back condition"
+    },
+    {
+      "id": "gt_subodh_003",
+      "category": "goal",
+      "fact": "User wants to improve core strength and posture to reduce chronic lower back pain"
+    },
+    {
+      "id": "gt_subodh_004",
+      "category": "habit",
+      "fact": "User has a sedentary desk job lasting 9 hours a day and averages under 3000 steps daily"
+    },
+    {
+      "id": "gt_subodh_005",
+      "category": "preference",
+      "fact": "User prefers low-impact exercises and enjoys swimming when accessible"
+    },
+    {
+      "id": "gt_subodh_006",
+      "category": "emotion",
+      "fact": "User feels persistently demotivated and burnt out due to work stress consistently disrupting workout routine"
+    }
+  ],
+  "conversation_messages": [
+    "I've been struggling with lower back pain for about 2 years. Got an MRI done last year — L4-L5 disc bulge. It's not surgical level but it's affecting everything.",
+    "My physio said no heavy overhead pressing, no heavy barbell squats. Basically anything that loads my spine vertically is off the table for now.",
+    "I sit at a desk for 9 hours a day as a project manager. I honestly probably walk less than 3000 steps on most days.",
+    "I want to strengthen my core properly — I feel like that's the root cause. Better core means less pain, right?",
+    "Work has been insane lately. I manage a team of 12 and the stress is unreal. I keep skipping workouts because by evening I'm completely drained.",
+    "Swimming is the one thing that feels good on my back. I try to go on weekends when I can get to the pool. Any other low-impact options?",
+    "I've tried going to the gym a few times but I honestly don't know what to do that won't hurt my back.",
+    "My posture is terrible from all the desk work. My shoulders are rounded and my lower back is always achy by afternoon.",
+    "I have two kids so time is limited. I can maybe do 30 minutes 3-4 times a week realistically.",
+    "I started doing some YouTube yoga videos for back pain but I don't know if they're actually targeting the right things.",
+    "The back pain is worse on days when I'm stressed. Is there a connection between stress and back pain?",
+    "I feel like I've been trying to get fit for 2 years and just keep failing. The motivation just isn't there anymore.",
+    "Can I do planks and bird-dogs? Those seem safe but I'm not sure if they're enough."
+  ],
+  "probe_queries": [
+    {
+      "query": "Can I do overhead press or military press?",
+      "relevant_fact_ids": ["gt_subodh_002"]
+    },
+    {
+      "query": "What exercises will help with my back pain?",
+      "relevant_fact_ids": ["gt_subodh_001", "gt_subodh_003"]
+    },
+    {
+      "query": "I sit all day at work, what can I do during office hours?",
+      "relevant_fact_ids": ["gt_subodh_004"]
+    },
+    {
+      "query": "I just can't find motivation to work out these days",
+      "relevant_fact_ids": ["gt_subodh_006"]
+    },
+    {
+      "query": "Is swimming a good option for someone like me?",
+      "relevant_fact_ids": ["gt_subodh_005", "gt_subodh_001"]
+    },
+    {
+      "query": "Build me a core strengthening routine",
+      "relevant_fact_ids": ["gt_subodh_003", "gt_subodh_001", "gt_subodh_002"]
+    }
+  ]
+}

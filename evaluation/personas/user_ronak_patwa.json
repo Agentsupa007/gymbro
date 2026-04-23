@@ -1,0 +1,85 @@
+{
+  "user_id": "eval_ronak",
+  "profile": {
+    "full_name": "Ronak Patwa",
+    "age": 22,
+    "gender": "male",
+    "height_cm": 178,
+    "weight_kg": 72,
+    "fitness_goal": "Muscle gain and strength",
+    "activity_level": "moderate"
+  },
+  "ground_truth_facts": [
+    {
+      "id": "gt_ronak_001",
+      "category": "goal",
+      "fact": "User wants to bench press 100 kg, currently lifts 75 kg"
+    },
+    {
+      "id": "gt_ronak_002",
+      "category": "limitation",
+      "fact": "User experiences lower back tightness after heavy deadlifts"
+    },
+    {
+      "id": "gt_ronak_003",
+      "category": "preference",
+      "fact": "User prefers to work out in the evenings between 6-8pm"
+    },
+    {
+      "id": "gt_ronak_004",
+      "category": "habit",
+      "fact": "User consistently skips breakfast and trains fasted most days"
+    },
+    {
+      "id": "gt_ronak_005",
+      "category": "event",
+      "fact": "User has engineering placement exams in approximately 2 months causing significant stress"
+    },
+    {
+      "id": "gt_ronak_006",
+      "category": "preference",
+      "fact": "User follows a push-pull-legs training split"
+    }
+  ],
+  "conversation_messages": [
+    "Been lifting for about 8 months now. Currently benching 75kg and my goal is to hit 100kg. How realistic is that in the next few months?",
+    "I do PPL — push pull legs. Been running it 5 days a week. Seems to work well for me.",
+    "One problem I keep running into is my lower back gets really tight after heavy deadlifts. Not painful exactly, just tight and stiff for a day or two.",
+    "I never eat breakfast, just not hungry in the morning. I know everyone says it's important but I literally can't eat before 12pm.",
+    "I train in the evening, usually 6 to 8pm. That's the only time that works with my college schedule.",
+    "Placements are coming up in 2 months and I'm already stressed. How does stress affect muscle building?",
+    "My deadlift form might be off — I tend to round my lower back when it gets heavy. Could that be causing the tightness?",
+    "What accessories should I add to bring my bench press up faster? I feel like my triceps are the weak link.",
+    "How much protein should I be eating? I'm 72kg. I currently get maybe 100-120g a day.",
+    "I have placement prep going on so some days I have to skip the gym. How do I minimize muscle loss when I miss sessions?",
+    "Should I switch to a 4-day split during exam season or just keep the PPL going?",
+    "I train completely fasted because I skip breakfast — is that killing my gains or is it fine?",
+    "Any tips for maintaining strength and muscle while I'm under a lot of academic pressure?"
+  ],
+  "probe_queries": [
+    {
+      "query": "How do I get to a 100kg bench press?",
+      "relevant_fact_ids": ["gt_ronak_001"]
+    },
+    {
+      "query": "My lower back is sore after deadlifts again",
+      "relevant_fact_ids": ["gt_ronak_002"]
+    },
+    {
+      "query": "Is it bad to skip breakfast when trying to build muscle?",
+      "relevant_fact_ids": ["gt_ronak_004"]
+    },
+    {
+      "query": "What time should I schedule my workouts?",
+      "relevant_fact_ids": ["gt_ronak_003"]
+    },
+    {
+      "query": "I've been stressed about exams, how does that affect my training?",
+      "relevant_fact_ids": ["gt_ronak_005"]
+    },
+    {
+      "query": "Should I change my training split right now?",
+      "relevant_fact_ids": ["gt_ronak_006", "gt_ronak_005"]
+    }
+  ]
+}

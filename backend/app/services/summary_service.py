@@ -34,7 +34,7 @@ from app.services.embedding_service import _get_chroma_collections, embed_text
 logger = logging.getLogger(__name__)
 
 _client = genai.Client(api_key=settings.GEMINI_API_KEY)
-MODEL_NAME = "gemini-2.0-flash"
+MODEL_NAME = "gemini-2.5-flash"
 
 # Minimum activity to bother generating a summary
 _MIN_MESSAGES = 1
